@@ -1,0 +1,24 @@
+body { background: linear-gradient(to right, #700878, #f087f7) !important; } 
+h1 { font-size:50px !important; color:#700878 !important;}
+h3 { font-size:30px; color: black;}
+p { font-size:20px; color: black;}
+.carousel-inner {width: 100%}
+.carousel-content {height: 400px; width: 100%;}
+.jumbotron {height: 20%; background:black; }
+h1 {font-size:20px; color: white;}
+.carousel {height: 500px; interval: false}
+
+.carousel-indicators > li, .carousel-indicators > li.active{
+    width: 100px;
+    height: 24px;
+    border-radius: 0;
+    border: solid 1px black;
+    background: black;
+    text-indent: 0;
+    color: white;
+}
+.carousel-indicators > li.active {
+    background: #700878;
+}
+
+.img-thumbnail {width: 100%; max-width:400px; height: auto;}

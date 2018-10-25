@@ -1,0 +1,96 @@
+.gabincontent
+{
+    width:            55%;
+    margin:           auto;
+    font-size:        15px;
+    font-family:      'Source sans Pro', Calibri, sans-serif;
+    padding:          40px;
+    border:           5px solid #3388CC;
+    border-radius:    10px;
+    box-shadow:       2px 4px 3px black;
+}
+
+.infophoto
+{
+    height: 250px;
+}
+
+.strongadapted
+{
+    font-size: 26px;
+}
+
+.beruf
+{
+    margin-bottom: 70px;
+    text-align:    justify;
+}
+
+.h2adapted
+{
+    font-size:      28px;
+    color:          #3388BB;
+    text-transform: uppercase;
+    border-bottom:  3px solid #3388DD;
+    clear:          both;
+}
+
+.sec-links
+{
+    float:       left;
+    font-weight: bold;
+    font-size:   20px;
+}
+
+#formatierung p
+{
+    margin-bottom: 45px;
+}
+
+.sec-recht
+{
+    margin-left: 250px;
+    margin-top:  37px;
+}
+
+.studium
+{
+    margin-bottom: 70px;
+    text-align:    justify;
+}
+
+.bildung
+{
+    margin-bottom: 70px;
+    text-align:    justify;
+    font-size:     20px;
+}
+
+.sec-recht4
+{
+    margin-left: 200px;
+}
+
+.hobby
+{
+    margin-bottom: 70px;
+    text-align:    justify;
+}
+
+.sec-recht5
+{
+    margin-left: 250px;
+    margin-top:  45px;
+    font-size:   20px;
+}
+
+.title
+{
+    font-weight: bold;
+    font-size:   20px;
+}
+
+body
+{
+    background-color: #CCCCCC;
+}

@@ -1,0 +1,202 @@
+{% extends 'layout.twig' %}
+{% set border = " border boder-dark rounded " %}
+{% set borderbot = " border boder-dark border-top-0 border-left-0 border-right-0" %}
+{% set typeaheadstyle = 'style="-ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    margin-bottom: 0;
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;"' %}
+{% block body %}
+    <div class="container pb-2">
+        <div class="row d-flex justify-content-between">
+            <div class="col-lg-6 px-0 {{ border }}my-1">
+                <div class="col-lg-12 py-2 bg-light{{ borderbot }}"><i
+                            class="fa fa-drivers-license-o"></i> {{ "information"|title }}</div>
+                <form action="/fa17g16/user/edit/details" method="post"
+                      class="form-group form-inline mx-1">
+                    <div class="row col-lg-12">
+                        <div class="input-group mb-2 mb-sm-0 mx-1 my-1 input-group-sm col-lg-5">
+                            <div class="input-group-addon">First Name</div>
+                            <input type="text" name="first_name" placeholder="first_name"
+                                   value="{{ data.user.first_name }}"
+                                   class="form-control">
+                        </div>
+                        <div class="input-group mb-2 mb-sm-0 mx-1 my-1 input-group-sm col-lg-5">
+                            <div class="input-group-addon">Last Name</div>
+                            <input type="text" name="last_name" placeholder="last_name"
+                                   value="{{ data.user.last_name }}"
+                                   class="form-control">
+                        </div>
+                    </div>
+                    <div class="row col-lg-12">
+                        <div class="input-group mb-2 mb-sm-0 mx-1 my-1 input-group-sm col-lg-5">
+                            <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                            <input type="text" name="phone" placeholder="phone" value="{{ data.user.phone }}"
+                                   class="form-control">
+                        </div>
+                        <div class="input-group mb-2 mb-sm-0 mx-1 my-1 input-group-sm col-lg-5">
+                            <div class="input-group-addon"><i class="fa fa-mobile"></i></div>
+                            <input type="text" name="mobile" placeholder="mobile" value="{{ data.user.mobile }}"
+                                   class="form-control">
+                        </div>
+                    </div>
+                    <div class="row col-lg-12">
+                        <div class="input-group mb-2 mb-sm-0 mx-1 my-1 input-group-sm col-lg-5">
+                            <div class="input-group-addon"><i class="fa fa-at"></i></div>
+                            <input type="text" name="email" placeholder="email" value="{{ data.user.email }}"
+                                   class="form-control">
+                        </div>
+                        <div class="input-group mb-2 mb-sm-0 mx-1 my-1 input-group-sm col-lg-5">
+                            <div class="input-group-addon">Street</div>
+                            <input type="text" name="street" placeholder="street" value="{{ data.user.adress.street }}"
+                                   class="form-control">
+                        </div>
+                    </div>
+                    <div class="row col-lg-12">
+                        <div class="input-group mb-2 mb-sm-0 mx-1 my-1 input-group-sm form-group-sm col-lg-5">
+                            <div class="input-group-addon">Zipcode</div>
+                            <input type="text" name="zipcode" placeholder="zipcode"
+                                   value="{{ data.user.adress.zipcode.zipcode }}" size="12"
+                                   class="form-control adress-zipcode-typeahead typeahead" {{ typeaheadstyle }}>
+                        </div>
+                        <div class="input-group mb-2 mb-sm-0 mx-1 my-1 input-group-sm col-lg-5">
+                            <div class="input-group-addon">Location</div>
+                            <input type="text" name="location" placeholder="location"
+                                   value="{{ data.user.adress.zipcode.location }}" size="15"
+                                   class="form-control adress-location-typeahead typeahead" {{ typeaheadstyle }}>
+                        </div>
+                    </div>
+                    <div class="row col-lg-12">
+                        
+                        <div class="input-group mb-2 mb-sm-0 mx-1 my-1 input-group-sm col-lg-5">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox"
+                                       placeholder="uses public transportation" {% if data.user.usePublicTransport == 1 %}{{ "checked" }}{% endif %}
+                                       name="usePublicTransport">&nbsp;{{ "public transportation"|title }}
+                            </label>
+                            <input type="hidden" name="zipcode_id" value="{{ data.user.adress.zipcode_id }}"
+                                   class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-4">&nbsp;</div>
+                            <div class="col-lg-7"><input type="submit" class="btn btn-secondary fa mx-1 my-1"
+                                                         value="{{ "save information"|title }}"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-5 px-0 {{ border }}my-1">
+                <div class="col-lg-12 py-2 bg-light{{ borderbot }}"><i
+                            class="fa fa-lock"></i> {{ "login credentials"|title }}</div>
+                <form action="/fa17g16/user/edit/credentials" method="post"
+                      class="form-group d-flex justify-content-between form-inline mx-1">
+                    <input class="form-control my-3" name="mail1" type="email" placeholder="email1"
+                           value="{{ data.user.email }}">
+                    <input class="form-control my-3" name="mail2" type="email" placeholder="repeat email to change">
+                    <input class="form-control my-3" name="password1" type="password" placeholder="new password">
+                    <input class="form-control my-3" name="password2" type="password"
+                           placeholder="repeat password to confirm">
+                    <input type="submit" class="btn btn-secondary fa mx-1 my-1"
+                           value="{{ "change credentials"|title }}">
+                </form>
+            </div>
+        </div>
+        <div class="row">{% include 'partials/user_roles_badge.twig' with data.user.roles %}</div>
+        <div class="row{{ border }}">
+            <div class="col-lg-12 py-2 bg-light{{ borderbot }}"><i class="fa fa-users"></i> {{ "family members"|title }}
+            </div>
+            <div class="col-lg-12 px-1 py-1">
+                <form action="/fa17g16/user/edit/family/add" method="post"
+                      class="form-group d-flex justify-content-between form-inline">
+                    <input class="form-control" type="text" placeholder="new family member name"
+                           name="familyMemberName">
+                    <select class="form-control" id="selectFamilyMemberType" name="familyMemberType">
+                        <option hidden value="none">{{ "choose type"|title }}</option>
+                        <option>Kid</option>
+                        <option>Wife</option>
+                        <option>Husband</option>
+                    </select>
+                    <input class="form-control" type="number" placeholder="new family member age"
+                           name="familyMemberAge">
+                    <label class="form-check-label">
+                        <input class="form-control" type="checkbox" placeholder="uses public transportation"
+                               name="familyMemberPublicTransport">&nbsp;{{ "uses public transportation"|title }}
+                    </label>
+                    <span><input type="submit" class="btn btn-secondary fa mx-1 my-1" value="{{ "add"|title }}"></span>
+                </form>
+            </div>
+            <div class="col-lg-12 px-1 pb-1 ">
+                <ul class="list-group icon" style="">
+                    {% for member in data.user.family %}
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span class="d-flex justify-content-between col-lg-9">
+                                <span class="name mx-2"><i class="fa fa-user"></i> {{ "name:"|title }} {{ member.name }}</span>
+                                <span class="age mx-2">{{ "age:"|title }} {{ member.age }}</span>
+                                <span class="type mx-2">{{ member.type|title }}</span>
+                                <span class="public mx-2">
+                                    <a href="/fa17g16/user/edit/family/trigger/public/{{ member.id }}">
+                                        <i class="fa fa-bus"></i> {{ "public transport:"|title }}
+                                        {% if member.usePublicTransport %}
+                                            <i class="fa fa-check-square-o" style="min-width: 18px"></i>
+                                        {% else %}
+                                            <i class="fa fa-square-o" style="min-width: 18px"></i>
+                                        {% endif %}
+                                        </a>
+                                </span>
+                            </span>
+                            <span>
+                                <form action="/fa17g16/user/edit/family/delete" method="post">
+                                    <input type="hidden" name="id" value="{{ member.id }}">
+                                    <input type="submit" class="btn btn-secondary fa"
+                                           value="{{ "delete family member"|title }}">
+                                </form>
+                            </span>
+                        </li>
+                    {% else %}
+                        <li class="list-group-item d-flex justify-content-between">{{ "no family members found"|title }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-between">
+          <div class="col-lg-8 px-0 {{ border }}my-1">
+              <div class="col-lg-12 py-2 bg-light{{ borderbot }}"><i
+                          class="fa fa-picture-o"></i> {{ "profilepicture"|title }}
+              </div>
+              <form enctype="multipart/form-data" action="/fa17g16/user/edit/profilepicture" method="post"
+                    class="form-group d-flex justify-content-between flex-wrap form-inline mx-1">
+                  <div class="container-fluid mt-3">
+                    <div id="fileinput">
+                      <p>Please choose a representing picture:</p>
+                      <p><input type="file" id="file0" name="file0" accept="image/*"/></p>
+                    </div>
+                    <b>Info:</b><br>
+                    Pictures need their time to upload. Be aware if you preview the Advertisement!
+                  </div>
+                  <div class="container-fluid">               
+                    <input type="submit" class="btn btn-secondary fa mx-1 my-1" value="{{ "Upload Pictures"|title }}">
+                  
+                  </div>
+              </form>
+          </div>
+      </div>
+    </div>
+    {% if user.isAdmin %}
+        <pre>
+    {{ dump(data) }}
+</pre>
+    {% endif %}
+{% endblock %}

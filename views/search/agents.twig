@@ -1,0 +1,65 @@
+{% extends 'layout.twig' %}
+{% set border = " border boder-dark rounded " %}
+{% set borderbot = " border boder-dark border-top-0 border-left-0 border-right-0" %}
+
+{% block body %}
+    <div class="agencies section-padding2 {{ border }}">
+        <div class="{{ borderbot }} bg-light p-2"><i class="fa fa-users"></i> {{ "real estate agents"|title }}</div>
+        <div class="agents d-flex justify-content-center flex-wrap">
+            {% for agent in data.agents.agents %}
+                {% set ratings_amount = 0 %}
+                {% set ratings_sum = 0 %}
+                {% for rating in agent.agent_ratings %}
+                    {% set ratings_amount = ratings_amount+1 %}
+                    {% set ratings_sum = ratings_sum + (rating.rating * 2) %}
+                {% endfor %}
+                {% set ratings_avg = (ratings_sum/ratings_amount) %}
+                <div class="col-lg-12">
+                    <a href="/fa17g16/user/{{ agent.id }}">
+                        <div class="row" id="rowDiv">
+                            <div class="col-lg-4 text-center">
+                                <img id="noPicture" {% if agent.profilepicture is empty %} src="{{ "http://192.168.73.186/public/images/nopicture.png" }}" style="max-width:70%;" {% else %} class="rounded" src="{{ agent.profilepicture }}" style="max-width:100%;" {% endif %}>
+                            </div>
+                            <div class="col-lg-8" id="textDiv">
+                                <h5 id="header" class="ansbox">{{agent.first_name }} {{ agent.last_name }}</h5>
+                                <h6 id="header" class="ansbox">selling {{ agent.selling_real_estate.length }} estates<br/>{{ agent.email }}</h6>
+                                <div class="ratings-container">
+                                    {% if ratings_sum > 0 %}
+                                        {% set stars = (ratings_avg|round(0)/2) %}
+                                        {% set starsleft = 5-stars %}
+
+                                        {% if stars >= 1 %}
+                                            {% for i in 1..stars %}
+                                                <i class="fa fa-star"></i>
+                                            {% endfor %}
+                                        {% endif %}
+
+                                        {% if ratings_avg|round(0) is odd %}
+                                            <i class="fa fa-star-half-o"></i>
+                                        {% endif %}
+
+                                        {% if starsleft >= 1 %}
+                                            {% for i in 1..starsleft %}
+                                                <i class="fa fa-star-o"></i>
+                                            {% endfor %}
+                                        {% endif %}
+
+                                    {% else %}
+                                        <i class="fa fa-star-o"></i> Not rated yet.
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% else %}
+                <div>No Agents found for this Agency</div>
+            {% endfor %}
+        </div>
+    </div>
+    {% if user.isAdmin %}
+        <pre>
+        {{ dump(data.agents) }}
+        </pre>
+    {% endif %}
+{% endblock %}

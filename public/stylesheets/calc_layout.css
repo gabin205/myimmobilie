@@ -1,0 +1,17 @@
+.calc > div > span:not(:first-child)
+{
+    min-width:  5em;
+    text-align: right !important;
+}
+
+.calc > div:nth-last-child(2) > span:not(:first-child)
+{
+    border-bottom:       1px;
+    border-bottom-style: solid;
+}
+
+.calc > div:last-child > span:not(:first-child)
+{
+    border-bottom:       3px;
+    border-bottom-style: double;
+}

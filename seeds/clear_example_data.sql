@@ -1,0 +1,11 @@
+SET foreign_key_checks = 0;
+TRUNCATE TABLE users;
+TRUNCATE TABLE real_estates;
+TRUNCATE TABLE real_estate_medias;
+TRUNCATE TABLE adresses;
+TRUNCATE TABLE real_estate_equipment;
+TRUNCATE TABLE real_estate_equipments;
+TRUNCATE TABLE roles;
+TRUNCATE TABLE user_roles;
+TRUNCATE TABLE real_estate_agencies;
+SET foreign_key_checks = 1;

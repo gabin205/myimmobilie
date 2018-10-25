@@ -1,0 +1,37 @@
+<a class="dropdown-toggle float-right" href="#collapseFilter" id="filter" data-toggle="collapse"
+   aria-expanded="false">Filter</a>
+<div class="collapse border rounded mt-4 pt-1" id="collapseFilter">
+    <div class="group text-left mx-2">
+        <!-- Array for equipment types -->
+        {% set arr = [] %}
+        <!-- write types in array -->
+        {% for equipment in data.equipments %}
+            {% if equipment.equipment_type not in arr %}
+                {% set arr = arr|merge([equipment.equipment_type]) %}
+            {% endif %}
+        {% endfor %}
+        <div class="row">
+            {% for type in arr %}
+                <!-- for every type a new column -->
+                <div class="col-sm">
+                    <!-- heading -->
+                    <h4 class="alert alert-dark rounded mt-1 mb-2">{{ type|replace({'_':' '}) }}</h4>
+                    <div class="equipment-type-items mx-2">
+                        <!-- write values from data in columns -->
+                        {% for equipment in data.equipments %}
+                            {% if equipment.equipment_type == type %}
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="equipment[]"
+                                               value="{{ equipment.equipment_name }}" {% if equipment.equipment_name in data.formdata.equipment %} checked {% endif %}>
+                                        {{ equipment.equipment_name|replace({'_':' '}) }}
+                                    </label>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

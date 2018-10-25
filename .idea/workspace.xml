@@ -1,0 +1,1410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c293c91d-3464-4dee-9a74-13f41de6ede8" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/passport.js" afterPath="$PROJECT_DIR$/config/passport.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Favorable.js" afterPath="$PROJECT_DIR$/models/Favorable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/ready_functions.js" afterPath="$PROJECT_DIR$/public/js/ready_functions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/favorable.js" afterPath="$PROJECT_DIR$/routes/favorable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/messaging.js" afterPath="$PROJECT_DIR$/routes/messaging.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/real_estate.js" afterPath="$PROJECT_DIR$/routes/real_estate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/search.js" afterPath="$PROJECT_DIR$/routes/search.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/user.js" afterPath="$PROJECT_DIR$/routes/user.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_21.sql" afterPath="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_21.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_22.sql" afterPath="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_22.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_23.sql" afterPath="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_23.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_24.sql" afterPath="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_24.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_25.sql" afterPath="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_25.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_26.sql" afterPath="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_26.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_27.sql" afterPath="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_27.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seeds/fa17g16_real_estate_medias.sql" afterPath="$PROJECT_DIR$/seeds/fa17g16_real_estate_medias.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.twig" afterPath="$PROJECT_DIR$/views/layout.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/real_estate/estate.twig" afterPath="$PROJECT_DIR$/views/real_estate/estate.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/search/search.twig" afterPath="$PROJECT_DIR$/views/search/search.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/user/dashboard.twig" afterPath="$PROJECT_DIR$/views/user/dashboard.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/user/view.twig" afterPath="$PROJECT_DIR$/views/user/view.twig" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="messaging.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/messaging.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5571">
+              <caret line="401" column="2" lean-forward="true" selection-start-line="401" selection-start-column="2" selection-end-line="401" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="www" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/www">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/user.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-10684">
+              <caret line="72" column="5" lean-forward="true" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="passport.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/passport.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-618">
+              <caret line="53" column="35" lean-forward="true" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>showfa</find>
+      <find>RATE</find>
+      <find>sidebar</find>
+      <find>map</find>
+      <find>favor</find>
+      <find>id</find>
+      <find>id =</find>
+      <find>id=</find>
+      <find>agent</find>
+      <find>Beru</find>
+      <find>formatierung</find>
+      <find>appointmentBtn</find>
+      <find>sideba</find>
+      <find>inline</find>
+      <find>headerNavPin</find>
+      <find>headerNavPinned</find>
+      <find>head</find>
+      <find>font-famil</find>
+      <find>edit</find>
+      <find>fa17g16</find>
+      <find>192.168.73.186</find>
+      <find>http://localhost/public/</find>
+      <find>https://sfsuse.com/fa17g16/public</find>
+      <find>https://sfsuse.com</find>
+      <find>formdata</find>
+      <find>register</find>
+      <find>login</find>
+      <find>reg</find>
+      <find>302</find>
+      <find>found</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>http://localhost/public/</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\Gabin\Dropbox\Master\Master-Projet\fa17g16</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/public/stylesheets/style_about_gabin.css" />
+        <option value="$PROJECT_DIR$/bin/www" />
+        <option value="$PROJECT_DIR$/views/search/real_estate.twig" />
+        <option value="$PROJECT_DIR$/views/real_estate/rating.twig" />
+        <option value="$PROJECT_DIR$/views/rateable/rateable.twig" />
+        <option value="$PROJECT_DIR$/routes/rateable.js" />
+        <option value="$PROJECT_DIR$/models/Rateable.js" />
+        <option value="$PROJECT_DIR$/node_modules/path-to-regexp/index.js" />
+        <option value="$PROJECT_DIR$/public/stylesheets/favorable.css" />
+        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
+        <option value="$PROJECT_DIR$/views/user/text.xml" />
+        <option value="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_21.sql" />
+        <option value="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_22.sql" />
+        <option value="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_23.sql" />
+        <option value="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_24.sql" />
+        <option value="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_25.sql" />
+        <option value="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_26.sql" />
+        <option value="$PROJECT_DIR$/seeds/DB-Backup/DumpDB_2017_11_27.sql" />
+        <option value="$PROJECT_DIR$/seeds/fa17g16_real_estate_medias.sql" />
+        <option value="$PROJECT_DIR$/views/user/view.twig" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/knexfile.js" />
+        <option value="$PROJECT_DIR$/views/index.twig" />
+        <option value="$PROJECT_DIR$/routes/search.js" />
+        <option value="$PROJECT_DIR$/routes/real_estate.js" />
+        <option value="$PROJECT_DIR$/config/passport.js" />
+        <option value="$PROJECT_DIR$/routes/user.js" />
+        <option value="$PROJECT_DIR$/routes/messaging.js" />
+        <option value="$PROJECT_DIR$/views/user/dashboard.twig" />
+        <option value="$PROJECT_DIR$/public/js/ready_functions.js" />
+        <option value="$PROJECT_DIR$/views/search/search.twig" />
+        <option value="$PROJECT_DIR$/views/real_estate/estate.twig" />
+        <option value="$PROJECT_DIR$/models/Favorable.js" />
+        <option value="$PROJECT_DIR$/routes/favorable.js" />
+        <option value="$PROJECT_DIR$/views/layout.twig" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="253" />
+    <option name="y" value="-17" />
+    <option name="width" value="847" />
+    <option name="height" value="762" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="fa17g16" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fa17g16" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="fa17g16" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fa17g16" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="bin" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="fa17g16" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fa17g16" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="fa17g16" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fa17g16" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="models" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="fa17g16" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fa17g16" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="fa17g16" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fa17g16" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="fa17g16" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fa17g16" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="routes" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="fa17g16" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fa17g16" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="fa17g16" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fa17g16" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="real_estate" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="fa17g16" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fa17g16" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="search" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="fa17g16" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fa17g16" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="user" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="fa17g16" type="cbb8eebc:String" user="fa17g16" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="fa17g16" type="cbb8eebc:String" user="fa17g16" />
+              <item name="views" type="cbb8eebc:String" user="views" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Gabin\Dropbox\Master\Master-Projet\fa17g16\routes" />
+      <recent name="C:\Users\Gabin\Dropbox\Master\Master-Projet\fa17g16\views\search" />
+    </key>
+  </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://192.168.73.168:17016" />
+          <option name="urlPath" value="/fa17g16/user/reg/" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Method-Check" />
+                <option name="value" value="true" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="email" />
+                <option name="value" value="moko@grt.de" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lastname" />
+                <option name="value" value="moko" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="firstname" />
+                <option name="value" value="mako" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="1234" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://192.168.73.168:17016" />
+          <option name="urlPath" value="/fa17g16/user/register" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Method-Check" />
+                <option name="value" value="true" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="email" />
+                <option name="value" value="moko@grt.de" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lastname" />
+                <option name="value" value="moko" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="firstname" />
+                <option name="value" value="mako" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="1234" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://192.168.73.168:17016" />
+          <option name="urlPath" value="/fa17g16/user/reg" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Method-Check" />
+                <option name="value" value="true" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="email" />
+                <option name="value" value="moko@grt.de" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lastname" />
+                <option name="value" value="moko" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="firstname" />
+                <option name="value" value="mako" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="1234" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://192.168.73.168:17016" />
+          <option name="urlPath" value="/fa17g16/user/reg" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="method" />
+                <option name="value" value="post" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="email" />
+                <option name="value" value="moko@grt.de" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lastname" />
+                <option name="value" value="moko" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="firstname" />
+                <option name="value" value="mako" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="1234" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://192.168.73.168:17016" />
+          <option name="urlPath" value="/fa17g16/user/reg" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="email" />
+                <option name="value" value="moko@grt.de" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lastname" />
+                <option name="value" value="moko" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="firstname" />
+                <option name="value" value="mako" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="1234" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://192.168.73.168" />
+          <option name="urlPath" value="/fa17g16/user/reg" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="email" />
+                <option name="value" value="moko@grt.de" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lastname" />
+                <option name="value" value="moko" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="firstname" />
+                <option name="value" value="mako" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="1234" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://192.168.73.168:80" />
+          <option name="urlPath" value="/fa17g16/user/reg" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="email" />
+                <option name="value" value="moko@grt.de" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lastname" />
+                <option name="value" value="moko" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="firstname" />
+                <option name="value" value="mako" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="1234" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://192.168.73.168:17016" />
+          <option name="urlPath" value="/fa17g16/user/reg" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="email" />
+                <option name="value" value="moko@grt.de" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lastname" />
+                <option name="value" value="moko" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="firstname" />
+                <option name="value" value="mako" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="1234" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="PUT" />
+          <option name="urlBase" value="http://192.168.73.168:17016" />
+          <option name="urlPath" value="/fa17g16/user/reg" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="email" />
+                <option name="value" value="moko@grt.de" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lastname" />
+                <option name="value" value="moko" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="firstname" />
+                <option name="value" value="mako" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="password" />
+                <option name="value" value="1234" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Node.js.www">
+    <configuration name="favorable.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="favorable.js" working-dir="$PROJECT_DIR$/routes" />
+    <configuration name="www" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="www" working-dir="$PROJECT_DIR$/bin" />
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Node.js.www" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.favorable.js" />
+    </list>
+    <recent_temporary>
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Node.js.www" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.favorable.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c293c91d-3464-4dee-9a74-13f41de6ede8" name="Default" comment="" />
+      <created>1510057595991</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1510057595991</updated>
+      <workItem from="1510057597410" duration="596000" />
+      <workItem from="1510065633965" duration="1034000" />
+      <workItem from="1510076561305" duration="1511000" />
+      <workItem from="1510171682411" duration="1300000" />
+      <workItem from="1510430921496" duration="5473000" />
+      <workItem from="1510478482105" duration="7270000" />
+      <workItem from="1510611882766" duration="599000" />
+      <workItem from="1510657083041" duration="277000" />
+      <workItem from="1510670133064" duration="95000" />
+      <workItem from="1510673519757" duration="3089000" />
+      <workItem from="1510683309196" duration="2519000" />
+      <workItem from="1510819417728" duration="656000" />
+      <workItem from="1510829759307" duration="1720000" />
+      <workItem from="1510834787486" duration="1505000" />
+      <workItem from="1510849932662" duration="5028000" />
+      <workItem from="1510875435880" duration="736000" />
+      <workItem from="1510920970733" duration="2412000" />
+      <workItem from="1510941383668" duration="10805000" />
+      <workItem from="1510996876286" duration="960000" />
+      <workItem from="1511005199597" duration="20756000" />
+      <workItem from="1511038678873" duration="3328000" />
+      <workItem from="1511076196270" duration="51962000" />
+      <workItem from="1511290382338" duration="15988000" />
+      <workItem from="1511390916918" duration="1131000" />
+      <workItem from="1511436130528" duration="2071000" />
+      <workItem from="1511454018400" duration="10456000" />
+      <workItem from="1511483512364" duration="1378000" />
+      <workItem from="1511526054470" duration="26408000" />
+      <workItem from="1511617487146" duration="13713000" />
+      <workItem from="1511642116459" duration="14998000" />
+      <workItem from="1511729002964" duration="10327000" />
+      <workItem from="1511811937646" duration="12429000" />
+      <workItem from="1511856874515" duration="10743000" />
+      <workItem from="1511880196676" duration="2971000" />
+      <workItem from="1511890554641" duration="3949000" />
+      <workItem from="1511905065987" duration="23072000" />
+      <workItem from="1511973594617" duration="17000" />
+      <workItem from="1511974108177" duration="9146000" />
+      <workItem from="1512002569411" duration="1767000" />
+      <workItem from="1512038809464" duration="4513000" />
+      <workItem from="1512049124295" duration="1200000" />
+      <workItem from="1512061505892" duration="20644000" />
+      <workItem from="1512119215323" duration="6338000" />
+      <workItem from="1512133152544" duration="2124000" />
+      <workItem from="1512203756345" duration="18769000" />
+      <workItem from="1512258162838" duration="4427000" />
+      <workItem from="1512295241575" duration="27817000" />
+      <workItem from="1512379121008" duration="34187000" />
+      <workItem from="1512457388736" duration="1628000" />
+      <workItem from="1512461221396" duration="17157000" />
+      <workItem from="1512490901671" duration="3666000" />
+      <workItem from="1512511402151" duration="1266000" />
+      <workItem from="1512555197412" duration="10975000" />
+      <workItem from="1512575598050" duration="15485000" />
+      <workItem from="1512640503423" duration="14651000" />
+      <workItem from="1512678353450" duration="16621000" />
+      <workItem from="1512742774888" duration="2761000" />
+      <workItem from="1512825362318" duration="26243000" />
+      <workItem from="1512859872050" duration="637000" />
+      <workItem from="1512902227542" duration="29897000" />
+      <workItem from="1512980181317" duration="37908000" />
+      <workItem from="1513067150568" duration="7732000" />
+      <workItem from="1513095019035" duration="331000" />
+      <workItem from="1513240362433" duration="525000" />
+      <workItem from="1513328992801" duration="7770000" />
+      <workItem from="1513371390905" duration="7739000" />
+      <workItem from="1513438801605" duration="14613000" />
+      <workItem from="1513502725522" duration="11242000" />
+      <workItem from="1513584692908" duration="19633000" />
+      <workItem from="1513626621945" duration="24000" />
+      <workItem from="1513676703837" duration="4625000" />
+      <workItem from="1513685468460" duration="2957000" />
+      <workItem from="1513757692788" duration="3607000" />
+      <workItem from="1513812979065" duration="3427000" />
+      <workItem from="1513845189239" duration="4273000" />
+      <workItem from="1515269674045" duration="2753000" />
+      <workItem from="1515419437757" duration="2978000" />
+      <workItem from="1515530900975" duration="4230000" />
+      <workItem from="1515577935983" duration="642000" />
+      <workItem from="1515669447354" duration="10645000" />
+      <workItem from="1515769811670" duration="4290000" />
+      <workItem from="1515846290791" duration="437000" />
+      <workItem from="1515847011067" duration="3054000" />
+      <workItem from="1515931631071" duration="2249000" />
+      <workItem from="1516115461785" duration="1140000" />
+      <workItem from="1516285039190" duration="1697000" />
+      <workItem from="1516892520340" duration="2442000" />
+      <workItem from="1517070807743" duration="2516000" />
+      <workItem from="1517128394617" duration="1592000" />
+      <workItem from="1517177238146" duration="1087000" />
+      <workItem from="1517213041424" duration="9509000" />
+      <workItem from="1517313348870" duration="634000" />
+      <workItem from="1517325954459" duration="3887000" />
+      <workItem from="1517591516459" duration="11770000" />
+      <workItem from="1517651398449" duration="4037000" />
+      <workItem from="1517663311747" duration="3365000" />
+      <workItem from="1517696376281" duration="6830000" />
+      <workItem from="1517736207531" duration="15773000" />
+      <workItem from="1517846189577" duration="16872000" />
+      <workItem from="1517910323718" duration="9481000" />
+      <workItem from="1517937762222" duration="1462000" />
+      <workItem from="1519721845930" duration="5684000" />
+      <workItem from="1520192041173" duration="6253000" />
+      <workItem from="1520447859655" duration="10790000" />
+      <workItem from="1520534805257" duration="2875000" />
+      <workItem from="1520621230327" duration="10065000" />
+      <workItem from="1520677730298" duration="19472000" />
+      <workItem from="1520764397010" duration="13767000" />
+      <workItem from="1520965967979" duration="7455000" />
+      <workItem from="1521058843996" duration="4248000" />
+      <workItem from="1521115216387" duration="3836000" />
+      <workItem from="1521144905265" duration="3014000" />
+      <workItem from="1521226120663" duration="7262000" />
+      <workItem from="1521331618980" duration="2926000" />
+      <workItem from="1521393451358" duration="7752000" />
+      <workItem from="1521494254588" duration="2921000" />
+      <workItem from="1521572587677" duration="5696000" />
+      <workItem from="1521636862349" duration="2442000" />
+      <workItem from="1521662528978" duration="2449000" />
+      <workItem from="1521670031263" duration="2279000" />
+      <workItem from="1521738972275" duration="7352000" />
+      <workItem from="1521827227019" duration="6801000" />
+      <workItem from="1521905718195" duration="5676000" />
+      <workItem from="1521967258008" duration="6046000" />
+      <workItem from="1521998024683" duration="12938000" />
+      <workItem from="1522095035825" duration="1267000" />
+      <workItem from="1522182184102" duration="4527000" />
+      <workItem from="1522231060642" duration="2052000" />
+      <workItem from="1522251501715" duration="6708000" />
+      <workItem from="1522319820236" duration="6157000" />
+      <workItem from="1522357208266" duration="1603000" />
+      <workItem from="1522395563082" duration="22977000" />
+      <workItem from="1522509776177" duration="612000" />
+      <workItem from="1522591854574" duration="13582000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1016463000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13410771" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18268216" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16692914" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39915523" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.096092924" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="merged from backend_dev" />
+    <option name="LAST_COMMIT_MESSAGE" value="merged from backend_dev" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/request.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4896">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-816">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/passport/lib/middleware/authenticate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5706">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/passport/lib/authenticator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6120">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/error.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/error.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/User.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/objection/lib/relations/manyToMany/ManyToManyRelation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1989">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/objection/lib/relations/Relation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1275">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/middleware/query.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2652">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/express.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/response.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/user/edit.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2941">
+          <caret line="173" column="56" lean-forward="false" selection-start-line="173" selection-start-column="56" selection-end-line="173" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/search/search-header.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="36" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Message.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Conversation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-472">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/search/search-filter.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/passport/lib/middleware/initialize.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="44" column="13" lean-forward="true" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/user/register.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="30" lean-forward="false" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/passport/lib/http/request.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="82" column="19" lean-forward="false" selection-start-line="82" selection-start-column="4" selection-end-line="82" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/knexfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="50" lean-forward="true" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/migrations/20171111004824_Adresses.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/migrations/20171111014147_Real_Estates.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="62" lean-forward="true" selection-start-line="15" selection-start-column="62" selection-end-line="15" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/migrations/20171113121205_add_sessions_table.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/migrations/20171111014417_RealEstate_Medias.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Adress.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="43" lean-forward="true" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/rateable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/about.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="32" column="24" lean-forward="false" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1347">
+          <caret line="377" column="10" lean-forward="false" selection-start-line="377" selection-start-column="10" selection-end-line="377" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/dummy_knex.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/search/search.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="56" column="14" lean-forward="true" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="170" column="16" lean-forward="false" selection-start-line="170" selection-start-column="16" selection-end-line="170" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Real_Estate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="59" column="16" lean-forward="false" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/www">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/real_estate/estate.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="24" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding>
+            <element signature="e#1141#1161#0#HTML" expanded="true" />
+            <element signature="e#1350#1370#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/aria.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="1361" column="22" lean-forward="false" selection-start-line="1361" selection-start-column="22" selection-end-line="1361" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/fontawesome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="6798" lean-forward="false" selection-start-line="14" selection-start-column="6797" selection-end-line="14" selection-end-column="6798" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/typeahead.bundle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1717">
+          <caret line="931" column="12" lean-forward="false" selection-start-line="931" selection-start-column="12" selection-end-line="931" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Favorable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="42" column="17" lean-forward="false" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10684">
+          <caret line="72" column="5" lean-forward="true" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/real_estate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="400" column="2" lean-forward="true" selection-start-line="400" selection-start-column="2" selection-end-line="400" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/appointments.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-960">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/user/dashboard.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="141" column="34" lean-forward="true" selection-start-line="141" selection-start-column="34" selection-end-line="141" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/passport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-618">
+          <caret line="53" column="35" lean-forward="true" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/favorable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/ready_functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1168">
+          <caret line="472" column="18" lean-forward="true" selection-start-line="472" selection-start-column="18" selection-end-line="472" selection-end-column="18" />
+          <folding>
+            <marker date="1522601938962" expanded="true" signature="11200:11704" ph="..." />
+            <marker date="1522601938962" expanded="false" signature="11262:11280" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="11800:12420" ph="..." />
+            <marker date="1522601938962" expanded="false" signature="11862:11880" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="11881:11968" ph="..." />
+            <marker date="1522601938962" expanded="false" signature="12030:12048" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="12343:12394" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="14044:15589" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="14103:15557" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="14172:14516" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="14233:14476" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="14353:14434" ph="..." />
+            <marker date="1522601938962" expanded="false" signature="14403:14433" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="14572:15412" ph="..." />
+            <marker date="1522601938962" expanded="false" signature="14849:14866" ph="..." />
+            <marker date="1522601938962" expanded="false" signature="15013:15030" ph="..." />
+            <marker date="1522601938962" expanded="false" signature="15179:15196" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="15483:15521" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="15785:17210" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="15844:17178" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="15913:16246" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="15974:16206" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="16082:16164" ph="..." />
+            <marker date="1522601938962" expanded="false" signature="16132:16163" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="16302:17142" ph="..." />
+            <marker date="1522601938962" expanded="false" signature="16579:16596" ph="..." />
+            <marker date="1522601938962" expanded="false" signature="16743:16760" ph="..." />
+            <marker date="1522601938962" expanded="false" signature="16909:16926" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="18777:20167" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="18826:20137" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="18885:20105" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="18954:19152" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="19015:19112" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="19208:19960" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="19511:19528" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="19673:19690" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="19833:19850" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="20031:20069" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="20487:21610" ph="..." />
+            <marker date="1522601938962" expanded="false" signature="20545:20565" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="20566:21588" ph="..." />
+            <marker date="1522601938962" expanded="false" signature="20620:20669" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="20670:20815" ph="..." />
+            <marker date="1522601938962" expanded="false" signature="20754:20784" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="20861:21404" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="21270:21374" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="21450:21562" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="21498:21532" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="22815:23911" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="22869:23376" ph="..." />
+            <marker date="1522601938962" expanded="false" signature="22943:22961" ph="..." />
+            <marker date="1522601938962" expanded="true" signature="23430:23877" ph="..." />
+            <marker date="1522601938962" expanded="false" signature="23504:23522" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/messaging.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5571">
+          <caret line="401" column="2" lean-forward="true" selection-start-line="401" selection-start-column="2" selection-end-line="401" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

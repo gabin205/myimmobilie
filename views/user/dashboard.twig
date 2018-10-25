@@ -1,0 +1,511 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    {% if user %}
+        <div class="row" style="margin-left: 0px; margin-top: 20px;">
+            <h4><strong> Welcome to your dashboard, {{ user.first_name }}! </strong></h4>
+        </div>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-lg-3 col-sm-6">
+                <div class="card" style="height: 600px">
+                    <center>
+                        {% if userdata.profilepicture is empty %}
+                          <div class="mx-2">
+                            <img class="card-img-top rounded" src="http://localhost/public/images/nopicture.png"
+                                 style="max-width:70%; margin-top:20px">
+                          </div>
+                        {% else %}
+                          <div class="mx-2">
+                            <img class="card-img-top rounded" src="{{ userdata.profilepicture }}"
+                                 style="max-width:100%; margin-top:20px">
+                          </div>
+                        {% endif %}
+                    </center>
+                    <div class="card-body">
+                        <h4 class="card-title">{{ user.first_name }} {{ user.last_name }}</h4>
+                        <p class="card-text"> E-Mail: {{ user.email }}</p>
+                        <p class="card-text"> Phone: {{ user.phone }}</p>
+                        <p class="card-text"> Mobile: {{ user.mobile }}</p>
+                        <p class="card-text"> Adress: {{ data.buyerdata.adress.street }}
+                            {{ data.buyerdata.adress.zipcode.zipcode }} {{ data.buyerdata.adress.zipcode.location }}</p>
+                        <a href="/fa17g16/user/edit" class="btn btn-secondary">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                <!-- Tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="tab" data-toggle="tab" href="#messageTab" role="tab">Messages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tab" data-toggle="tab" href="#appointmentTab" role="tab" onClick="showAppointments({{user.id}});">Appointments</a>
+                    </li>
+                    {% if data.agentdata is not empty %}
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab" data-toggle="tab" href="#agentRealtyTab" role="tab">My Real Estates</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab" data-toggle="tab" href="#ownerRealtyTab" role="tab">My Real Estates</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab" data-toggle="tab" href="#sellRealtyTab" role="tab" onClick="showAgencies();">Sell Realty</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab" data-toggle="tab" href="#ratingTab" role="tab">Rate Agents</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#favorableTab" role="tab" onClick="showFavorites({{user.id}});">My Favorites</a>
+                        </li>
+                    {% endif %}
+                </ul>
+
+                <!-- Tabs Content -->
+                <div class="tab-content">
+                    <!-- Message Tab -->
+                    <div class="tab-pane fade show active" id="messageTab" role="tabpanel">
+                        <div class="row">
+                            <!-- Sidebar -->
+                            <div class="col-md-3">
+                                <nav id="sidebar" style="height:550px">
+                                    <div class="sidebar-header">
+                                        <h5>Your Conversations</h5>
+                                    </div>
+                                    <ul class="list-unstyled components" data-spy="affix" data-offset-top="205">
+                                        {% if data.buyerdata.conversations.length > 0 %}
+                                            {% set arrCon = [] %}
+                                            {% for conversation in data.buyerdata.conversations %}
+                                                {% set existing = false %}
+                                                {% for arr in arrCon %}
+                                                    {% if conversation.id == arr.id %}
+                                                        {% set existing = true %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                                {% if existing == false %}
+                                                    {% set arrCon = arrCon|merge([conversation]) %}
+                                                {% endif %}
+                                            {% endfor %}
+                                            {% for i in arrCon.length-1..0 %}
+                                                <li id="sidebarLi" onClick="showMsg({{ arrCon[i].id }});">
+                                                    <a href="#">
+                                                        <h6><div class="font-weight-bold">{{ arrCon[i].message.type|capitalize|replace({'_': ' '})|title }}</div>
+                                                            <div>
+                                                        {% if arrCon[i].participants[0].id == user.id %}
+                                                            {{ arrCon[i].participants[1].first_name }} {{ arrCon[i].participants[1].last_name }}
+                                                        {% else %}
+                                                            {{ arrCon[i].participants[0].first_name }} {{ arrCon[i].participants[0].last_name }}
+                                                        {% endif %}
+                                                            </div>
+                                                        </h6>
+                                                        <div>{{ arrCon[i].created_at|date("d.m.Y") }}</div>
+                                                        <div>{{ arrCon[i].message.header }}</div>
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- Conversation -->
+                            <div class="col-md-9">
+                                <div id="tabDiv" style="height:550px;">
+                                    <div id="messageContent">
+                                        <!-- Content filled with JavaScript -->
+                                    </div>
+                                    <div>
+                                        {% if data.agentdata is not empty %}
+                                            <button id="appointmentBtn" type="button" class="btn btn-secondary" data-toggle="modal"
+                                                    data-target="#appointmentModal" style="visibility:hidden;">
+                                                <i class="fa fa-calendar"></i> Appointment
+                                            </button>
+                                        {% endif %}
+                                        <button id="replyBtn" type="button" class="btn btn-secondary" data-toggle="modal"
+                                                data-target="#messageModal" style="visibility:hidden;">
+                                            <i class="fa fa-vcard"></i> Reply
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Appointment Tab -->
+                    <div class="tab-pane fade show" id="appointmentTab" role="tabpanel">
+                        <div class="row" style="height: 550px" id="tabDiv">
+                            <div class="col-lg-12">
+                                <div id="appointmentsContent">
+                                    <!-- Content filled with JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Favorites Tab -->
+                    <div class="tab-pane fade show" id="favorableTab" role="tabpanel">
+                        <div class="row" style="height: 550px" id="tabDiv">
+                            <div class="col-lg-12">
+                                <div id="favorableContent">
+                                    <!-- Content filled with JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Agent My Real Estates Tab-->
+                    <div class="tab-pane fade" id="agentRealtyTab" role="tabpanel">
+                        <div class="row" style="height: 550px" id="tabDiv">
+                            <div class="col-lg-12">
+                                {% for realEstate in data.agentdata.selling_real_estate|reverse %}
+                                    <div class="col-lg-12">
+                                        <div class="row" id="rowDiv">
+                                            <div class="col-lg-7">
+                                                <h5 id="header" class="ansbox">{{realEstate.adress.street }} <br/>{{ realEstate.adress.zipcode.zipcode }} {{ realEstate.adress.zipcode.location }}</h5>
+                                                <h6 id="header" class="ansbox">{{ realEstate.owner.first_name }} {{ realEstate.owner.last_name }}<br/>{{ realEstate.owner.email }}</h6>
+                                                {% if realEstate.isActive == 1 %}
+                                                    <i class="fa fa-check-square-o" aria-hidden="true"></i> active
+                                                {% else %}
+                                                    <i class="fa fa-minus-square-o" aria-hidden="true"></i> not active
+                                                {% endif %}
+                                            </div>
+                                            <div id="" class="col-lg-5">
+                                                <p id="body" class="ansbox">Size: {{ realEstate.size }}</p>
+                                                <p id="body" class="ansbox">Cost: {{ realEstate.cost }}</p>
+                                                <a href="/fa17g16/real_estate/edit/{{ realEstate.id }}" class="btn btn-secondary">
+                                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit<br/></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                            
+                    <!-- Owner My Real Estates Tab-->
+                    <div class="tab-pane fade" id="ownerRealtyTab" role="tabpanel">
+                        <div class="row" style="height: 550px" id="tabDiv">
+                            <div class="col-lg-12">
+                                {% for realEstate in data.sellerdata.real_estate|reverse %}
+                                    <div class="col-lg-12">
+                                        <div class="row" id="rowDiv">
+                                            <div class="col-lg-7">
+                                                <h5 id="header" class="ansbox">{{realEstate.adress.street }} <br/>{{ realEstate.adress.zipcode.zipcode }} {{ realEstate.adress.zipcode.location }}</h5>
+                                                <h6 id="header" class="ansbox">{{ realEstate.seller.first_name }} {{ realEstate.seller.last_name }}<br/>{{ realEstate.seller.email }}</h6>
+                                                {% if realEstate.isActive == 1 %}
+                                                    <i class="fa fa-check-square-o" aria-hidden="true"></i> active
+                                                {% else %}
+                                                    <i class="fa fa-minus-square-o" aria-hidden="true"></i> not active
+                                                {% endif %}
+                                            </div>
+                                            <div id="" class="col-lg-5">
+                                                <p id="body" class="ansbox">Size: {{ realEstate.size }}</p>
+                                                <p id="body" class="ansbox">Cost: {{ realEstate.cost }}</p>
+                                                <a href="/fa17g16/real_estate/edit/{{ realEstate.id }}" class="btn btn-secondary">
+                                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit<br/></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                            
+                    <!-- Sell Realty Tab -->
+                    <div class="tab-pane fade" id="sellRealtyTab" role="tabpanel">
+                        <div class="row" style="height: 550px" id="tabDiv">
+                            <div class="col-lg-12">
+                                <div id="sellRealtyContent">
+                                    <!-- Content filled with JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            
+                    <!-- Rate Agents Tab -->
+                    <div class="tab-pane fade" id="ratingTab" role="tabpanel">
+                        <div class="row" style="height: 550px" id="tabDiv">
+                            <div class="col-lg-12">
+                                <div id="rateAgentsContent">
+                                    {% if data.buyerdata.conversations.length > 0 %}
+                                        {% set arrAgents = [] %}
+                                        {% for conversation in data.buyerdata.conversations %}
+                                            {% if conversation.message.type == "agent_contact" %}
+                                                <!-- get agent from conversation -->
+                                                {% set agent = '' %}
+                                                {% if conversation.participants[0].id == user.id %}
+                                                    {% set agent = conversation.participants[1] %}
+                                                {% else %}
+                                                    {% set agent = conversation.participants[0] %}
+                                                {% endif %}
+
+                                                <!-- check if agent exists in list -->
+                                                {% set existing = false %}
+                                                {% for arrAg in arrAgents %}
+                                                    {% if arrAg.id == agent.id %}
+                                                        {% set existing = true %}
+                                                    {% endif %}
+                                                {% endfor %}
+
+                                                <!-- write agent in list if not exists -->
+                                                {% if existing == false %}
+                                                    {% set arrAgents = arrAgents|merge([agent]) %}
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for a in arrAgents %}
+                                            {% set ratings_amount = 0 %}
+                                            {% set ratings_sum = 0 %}
+                                            {% for rating in a.agent_ratings %}
+                                                {% set ratings_amount = ratings_amount+1 %}
+                                                {% set ratings_sum = ratings_sum + (rating.rating * 2) %}
+                                            {% endfor %}
+                                            {% set ratings_avg = (ratings_sum/ratings_amount) %}
+                                            <div class="col-lg-12">
+                                                <div class="row" id="rowDiv">
+                                                    {% if a.profilepicture is empty %}
+                                                      <div class="col-lg-4 mx-auto mb-3">
+                                                        <div class="text-center">
+                                                          <img class="card-img-top" src="http://localhost/public/images/nopicture.png"
+                                                               style="max-width:60%; max-height:60%; margin-top:20px">
+                                                        </div>
+                                                      </div>
+                                                    {% else %}
+                                                      <div class="col-lg-4 mx-auto mb-3">
+                                                        <div class="text-center">
+                                                          <img class="card-img-top" src="{{ a.profilepicture }}"
+                                                               style="max-width:100%; margin-top:20px">
+                                                        </div>
+                                                      </div>
+                                                    {% endif %}
+                                                    <div class="col-lg-4">
+                                                        <h5 id="header" class="ansbox">{{ a.first_name }} {{ a.last_name }}</h5>
+                                                        <p id="body" class="ansbox">{{ a.email }}</p></br>
+                                                    </div>
+                                                    <div class="col-lg-4" id="textDiv">
+                                                        {% if ratings_sum > 0 %}
+                                                            {% set stars = (ratings_avg|round(0)/2) %}
+                                                            {% set starsleft = 5-stars %}
+
+                                                            {% if stars >= 1 %}
+                                                                {% for i in 1..stars %}
+                                                                    <i class="fa fa-star"></i>
+                                                                {% endfor %}
+                                                            {% endif %}
+
+                                                            {% if ratings_avg|round(0) is odd %}
+                                                                <i class="fa fa-star-half-o"></i>
+                                                            {% endif %}
+
+                                                            {% if starsleft >= 1 %}
+                                                                {% for i in 1..starsleft %}
+                                                                    <i class="fa fa-star-o"></i>
+                                                                {% endfor %}
+                                                            {% endif %}
+
+                                                        {% else %}
+                                                            <i class="fa fa-star-o"></i> Not rated yet.<br/>
+                                                            Be the first to rate {{ data.user.first_name }} {{ data.user.last_name }}.
+                                                        {% endif %}
+                                                        <div><br/><button type="button" class="btn btn-secondary" onClick="setFormActionRating({{ a.id }})" data-toggle="modal" data-target="#ratingModal">
+                                                            <i class="fa fa-star"></i> Rate Agent
+                                                        </button></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Modal Dialogs -->
+                <!-- Modal Message -->
+                <div id="messageModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header text-left">
+                                <h4 class="modal-title">Message Form</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="replyForm" name="replyForm" action="/" accept-charset="UTF-8"
+                                    method="post" style="margin-top: 2%">
+                                    <div class="row">
+                                        <div class="form-group col-lg-12">
+                                            <input type="hidden" name="curr_user" id="curr_user" value="{{userdata.id}}">
+                                            <input type="hidden" name="receiver_id" id="receiver_id">
+                                            <input type="hidden" name="parent_id" id="parent_id">
+
+                                            <label for="header">Header</label>
+                                            <input type="text" name="header" value="" class="form-control"
+                                                   id="first_name" aria-describedby="emailHelp" required>
+                                        </div>
+                                        <div class="form-group col-lg-12">
+                                            <label for="body">Message</label>
+                                            <textarea type="text" name="body" class="form-control" id="message"
+                                                      aria-describedby="emailHelp" cols="35"
+                                                      rows="6" required></textarea>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                </button>
+                                <button type="submit" class="btn btn-secondary" id="sendMessage">Send Message
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Madal Appointment -->
+                <div id="appointmentModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header text-left">
+                                <h4 class="modal-title">Appointment Form</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="appointmentForm" name="appointmentForm" action="/" accept-charset="UTF-8"
+                                    method="post" style="margin-top: 2%">
+                                    <div class="row">
+                                        <div class="form-group col-lg-12">
+
+                                            <label>Date</label>
+                                            <input type="date" name="date" id="appointmentDate" class="form-control" placeholder="DD.MM.JJJJ" required>
+                                            <label>Time</label>
+                                            <input type="time" name="time" id="appointmentTime" class="form-control" placeholder="HH:MM" required>
+                                            <input type="hidden" name="buyer_id" id="buyer_id">
+                                            <input type="hidden" name="real_estate_id" id="real_estate_id">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <p id="formaterror" style="color: red"></p>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                </button>
+                                <button type="submit" class="btn btn-secondary" id="setAppointment">Set Appointment
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Request -->
+                <div id="requestModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header text-left">
+                                <h4 class="modal-title">Request Form</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="contactForm"
+                                    action="/fa17g16/messaging/sellrequest/<putAgentIdHere>"
+                                    method="post" style="margin-top: 2%">
+                                    <div id="requestError" class="form-group col-lg-12"></div>
+                                    <div class="form-group col-lg-12">
+                                        Give some Information about your realty. This will help us to create an 
+                                        advertisement which could be edited by you and your agent. Not made statements
+                                        will be initialized with defaul values.
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="size">Realty Size</label>
+                                        <input type="text" name="size" value="" class="form-control"
+                                               id="size" required>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="price">Realty Price</label>
+                                        <input type="text" name="cost" value="" class="form-control"
+                                               id="cost" required>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="location">Street</label>
+                                        <input type="text" name="street" value="" class="form-control"
+                                               id="streetx" required>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="location">Location</label>
+                                        <input type="text" name="location" value="" class="form-control adress-complete-typeahead"
+                                               id="locationx" required>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="header">Topic for the advertisement</label>
+                                        <input type="text" name="header" value="" class="form-control"
+                                               id="header" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="body">Write your Message for the Agent</label>
+                                        <textarea type="text" name="body" class="form-control" id="message" cols="35"
+                                                  rows="6" required></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                </button>
+                                <button type="submit" class="btn btn-secondary" id="sendRequest">Send
+                                    Request
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 <!-- Modal Rating -->
+                <div id="ratingModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header text-left">
+                                <h4 class="modal-title">Rating Form</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="ratingForm"
+                                    action="/fa17g16/messaging/sellrequest/<putAgentIdHere>"
+                                    method="post" style="margin-top: 2%">
+                                    <div class="container">
+                                        <div class="star-rating">
+                                            <span class="fa fa-star-o" data-rating="1"></span>
+                                            <span class="fa fa-star-o" data-rating="2"></span>
+                                            <span class="fa fa-star-o" data-rating="3"></span>
+                                            <span class="fa fa-star-o" data-rating="4"></span>
+                                            <span class="fa fa-star-o" data-rating="5"></span>
+                                            <input id="ratingVal" type="hidden" name="rating" class="rating-value" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="comment">Comment</label>
+                                        <textarea type="text" name="comment" class="form-control" id="message" cols="35"
+                                                  rows="6"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <p id="ratingerror" style="color: red"></p>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                </button>
+                                <button type="submit" class="btn btn-secondary" id="sendRating">Rate
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+    {% endif %}
+{% endblock %}

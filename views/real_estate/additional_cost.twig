@@ -1,0 +1,105 @@
+<div class="row d-flex justify-content-between px-2 pb-3">
+    <div class="col-lg-12 px-0 {{ border }}my-1">
+        <div class="col-lg-12 py-2 bg-light{{ borderbot }}"><i
+                    class="fa fa-money"></i> {{ "additional cost per month"|title }}
+        </div>
+        <div class="mx-2 col-lg-12">
+            <div class="row">
+                <div class="col-lg-2 px-0 mr-1 ml-auto{{ border }} my-1 section-padding">
+                    <div class="py-2 bg-light{{ borderbot }}"><i class="fa fa-refresh fa-fw"></i> running cost</div>
+                    <div>{{ data.real_estate.running_cost|number_format(2, ',','.') }} €</div>
+                </div>
+                <div class="col-lg-3 px-0 mx-1{{ border }} my-1 section-padding">
+                    <div class="py-2 bg-light{{ borderbot }}"><i class="fa fa-sun-o fa-fw"></i> heating cost</div>
+                    {% set heating_efficiency = data.real_estate.energy_efficiency|replace({'A+':30,'A':40,'B':70,'C':90,'D':120,'E':150,'F':190,'G':240,'H':300,'NA':65}) %}
+                    <div>
+                        <span>energy efficiency class: </span><span
+                                class="energy-efficiency {{ data.real_estate.energy_efficiency }}"><abbr
+                                    title="the heating efficiency class determines how much energy (kWh) is needed per square meter for heating"> {{ data.real_estate.energy_efficiency }}</abbr></span>
+                    </div>
+                    <div>estimated amount of heating per qm: <abbr
+                                title="calculating with {{ heating_efficiency }} based on energy efficiency">>{{ heating_efficiency }}</abbr>
+                    </div>
+                    <div>
+                        {% set heat_cost = 0 %}
+                        {% for equip in data.real_estate.equipment %}
+                            {% if equip.equipment_type == "heating" %}
+                                <span> heating type: {{ equip.equipment_name }} </span>
+                                {% if equip.equipment_name == "gas" %}
+                                    <span>
+                                        {% set heat_cost = ((data.real_estate.size * 70 * 0.057+124)/12) %}
+                                        <abbr title="calculated with a cost of 0.057 € / kWh and an annual base cost of 124,- €"> {{ heat_cost|number_format(2, ',','.') }}
+                                            €</abbr>
+                                </span><span> including annual base cost of 124,- </span>
+                                {% endif %}
+                                {% if equip.equipment_name == "oil" %}
+                                    {% set heat_cost = ((data.real_estate.size * 70 * 0.067)/12) %}
+                                    <span><abbr title="calculated with a cost of 0.067 € / kWh">{{ heat_cost|number_format(2, ',','.') }}</abbr></span>
+                                {% endif %}
+                                {% if equip.equipment_name == "district_heating" %}
+                                    {% set heat_cost = (((data.real_estate.size * 70 * 0.072) + 350)/12) %}
+                                    <span><abbr title="calculated with a cost of 0.072 € / kWh and an annual base cost of 350,- €">{{ heat_cost|number_format(2, ',','.') }}
+                                            €</abbr></span><span> including annual base cost of 350,- </span>
+                                {% endif %}
+                                {% if equip.equipment_name == "pellet" %}
+                                    {% set heat_cost = ((data.real_estate.size * 70 * 0.054)/12) %}
+                                    <span><abbr title="calculated with a cost of 0.054 € / kWh">{{ heat_cost|number_format(2, ',','.') }}</abbr></span>
+                                {% endif %}
+                                {% if equip.equipment_name == "electro" %}
+                                    {% set heat_cost = ((data.real_estate.size * 70 * 0.261)/12) %}
+                                    <span><abbr title="calculated with a cost of 0.261 € / kWh">{{ heat_cost|number_format(2, ',','.') }}</abbr></span>
+                                {% endif %}
+                                {% if equip.equipment_name == "solar" %}
+                                    <span><abbr title="solar powered heating does not incur recurring costs">{{ heat_cost|number_format(2, ',','.') }}</abbr></span>
+                                {% endif %}
+                                {% if equip.equipment_name == "wood" %}
+                                    {% set heat_cost = ((data.real_estate.size * 70 * 0.05)/12) %}
+                                    <span><abbr title="calculated with a cost of 0.05 € / kWh">{{ heat_cost|number_format(2, ',','.') }}</abbr></span>
+                                {% endif %}
+                                €
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% if userdata.family.length > 0 %}{% set members = userdata.family.length+1 %}{% else %}{% set members = 1 %}{% endif %}{% if members == 0 %}{% set members = 1 %}{% endif %}
+                <div class="col-lg-3 px-0 mx-1{{ border }} my-1 section-padding">
+                    <div class="py-2 bg-light{{ borderbot }}"><i class="fa fa-bolt fa-fw"></i>
+                        estimated electricity cost
+                    </div>
+                    <div>
+                        <span>hausehold members:</span><span> {{ members }}</span>
+                    </div>
+
+                    <div>
+                        {% set euro_per_kwh = 0.2916 %}
+                        {% set elect_cost = (((data.real_estate.size * 9 + members * 600 + 800)*euro_per_kwh)/12) %}
+                        <span> electricity cost: </span>
+                        <span><abbr title="calculated with a cost of {{ euro_per_kwh }} € per kWh">{{ elect_cost|number_format(2, ',','.') }}</abbr></span>
+                        €
+                    </div>
+                </div>
+                <div class="col-lg-3 px-0 ml-1 mr-auto{{ border }} my-1 section-padding">
+                    <div class="py-2 bg-light{{ borderbot }}"><i class="fa fa-refresh fa-fw"></i> complete calculation
+                    </div>
+                    <div class="calc">
+                        <div class="d-flex justify-content-between">
+                            <span>running cost</span><span>{{ data.real_estate.running_cost|number_format(2, ',','.') }}
+                                €</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>heating cost</span><span>{{ heat_cost|number_format(2, ',','.') }} €</span></div>
+                        <div class="d-flex justify-content-between">
+                            <span>electricity cost</span>
+                            <span>{{ elect_cost|number_format(2, ',','.') }} €</span>
+                        </div>
+                        <div class="d-flex justify-content-between pb-2">
+                            <span>summed cost per month</span>
+                            <span>{{ (data.real_estate.running_cost + heat_cost + elect_cost)|number_format(2, ',','.') }}
+                                €</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

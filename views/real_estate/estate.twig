@@ -1,0 +1,523 @@
+{% extends 'layout.twig' %}
+{% set border = " border boder-dark rounded " %}
+{% set borderbot = " border boder-dark border-top-0 border-left-0 border-right-0" %}
+
+    {% block sidebar %}
+        <div class="row ml-1 mt-5 sticky-top">
+            <center>
+                {% if (user.isAdmin) or (userdata.id == data.real_estate.seller_id) %}
+                    <div><p class="font-weight-bold">It seems that you are the deposited seller of this object. You are able
+                            to edit it.</p>
+                        <p class="font-weight-bold">Feel free!</p></div>
+                <a href="/fa17g16/real_estate/edit/{{ data.real_estate.id }}" class="btn btn-outline-secondary mb-3"><i
+                            class="fa fa-pencil-square-o" aria-hidden="true"></i>EDIT</a>{% endif %}
+                {% if user %}
+                    <!--favorite button-->
+                    <form action="/fa17g16/favoriten/real_estate/{{data.real_estate.id}}" method="post" class="mt-2">
+                        <input type="hidden" value="{{data.real_estate.id}}" name="real_estateId">
+                        <button type="submit" style="height: 3em;" class="btn btn-secondary btn-sm" ><i class="fa fa-star" aria-hidden="true"></i> Add to Favorite</button>
+                    </form>
+                {% else %}
+                    <button style="height: 3em;" class="btn btn-secondary btn-sm" onclick="myFunction()"><i class="fa fa-star" aria-hidden="true"></i>Add to Favorite</button>
+                    <script>
+                        function myFunction() {
+                            alert("Please login first");
+                        }
+                    </script>{% endif %}
+                <!--favorite button-->
+            </center>
+        </div>
+    {% endblock %}
+
+
+{% if data.real_estate.isActive == 0 and ((user.isAdmin) or (userdata.id == data.real_estate.seller_id) or (userdata.id == data.real_estate.owner_id)) %}
+    {% block sidebar2 %}
+        <div class="row mr-2 mt-5 sticky-top" style="z-index: 900">
+            <center>
+                <div class="bg-light rounded p-1"><p><i class="fa fa-eye-slash"></i></p><p class="font-weight-bold text-warning"> This real estate advertisement is currently not public. Only Admins, the owner or selling agent can view it right now.</p><i class="fa fa-eye-slash"></i></div>
+            </center>
+        </div>
+    {% endblock %}
+{% endif %}
+
+{% block body %}
+    {% if data.real_estate.not_allowed %}
+        <p class="text-danger">you are not allowed to view this real estate</p>
+        <p class="text-info"><a href="/fa17g16">You can go back to our search and look for other real estates.</a></p>
+    {% else %}
+        <div class="real-estate">
+
+            <div class="container-fluid">
+                <h1 class="row border border-light border-top-0 border-left-0 border-right-0">{{ "real estate:"|title }}
+                    {{ data.real_estate.header }}
+                    {% if data.real_estate.isActive == 0 %}
+                        <abbr class=" ml-auto" title="This real estate advertisement is currently not public. Only Admins, the owner or selling agent can view it right now."><i class="fa fa-eye-slash text-danger"></i></abbr>
+                    {% endif %}
+                </h1>
+                <div class="row d-flex justify-content-between px-2">
+                    <div class="col-lg-6 px-0 {{ border }}my-1 ">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                {% for i in 0..data.real_estate.medias.length-1 %}
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="{{ i }}"
+                                        class="active"></li>
+                                {% endfor %}
+                            </ol>
+                            <div class="carousel-inner rounded">
+                                {% for media in data.real_estate.medias %}
+                                    <div class="carousel-item{% if loop.first %} active{% endif %}">
+                                        <img src="{{ media.path }}"
+                                             class="rounded d-block">
+                                    </div>
+                                {% else %}
+                                    <div class="carousel-item active">
+                                        <p class="d-flex flex-column justify-content-around">
+                                            <i class="fa fa-home" style="font-size: 10em;"></i>
+                                            <span>&nbsp; No pictures available</span>
+                                        </p>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                               data-slide="prev">
+                                <span class="carousel-control-prev-icon bg-dark rounded" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                               data-slide="next">
+                                <span class="carousel-control-next-icon bg-dark rounded" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- anfang 2. Spalte, 2. Zeile -->
+                    <div class="col-lg-5 px-0 {{ border }}my-1">
+                        <div id="map" class="rounded"></div>
+                      
+                        <div class="invisible invisible-display"><span>latlng</span><input type="text" id="latlng"
+                                                                                           placeholder="latlng"></div>
+                    </div>
+                </div>
+
+                <!-- anfang 1. Spalte, 2. Zeile -->
+                <div class="row d-flex justify-content-between px-2">
+
+                    <div class="col-lg-6 px-0 {{ border }}my-1">
+                        <!-- anfang for schleife -->
+                        <div class="col-lg-12 py-2 bg-light{{ borderbot }}">
+                            <i class="fa fa-home"></i> {{ "Real Estate"|title }}
+                        </div>
+                        <div class="col-lg-12 pb-2">
+                            <div class="row">
+                                <span class="col-3">Rooms: </span><span
+                                        class="col-9">{{ data.real_estate.rooms }}</span>
+                            </div>
+                            <div class="row">
+                                <span class="col-3">Size: </span>
+                                <span class="col-9">{{ data.real_estate.size|number_format(1, ',','.') }} m²</span>
+                            </div>
+                            <div class="row">
+                                <span class="col-3">Address: </span><span
+                                        class="col-9">{{ data.real_estate.adress.street }}</span>
+                            </div>
+                            <div class="row">
+                                <span class="col-3">Location: </span>
+                                <span class="col-9">{{ data.real_estate.adress.zipcode.zipcode }} {{ data.real_estate.adress.zipcode.location }}</span>
+                            </div>
+                            <div class="row">
+                                <span class="col-3">Cost: </span>
+                                <span class="col-9">{{ data.real_estate.cost|number_format(2, ',','.') }} $</span>
+                            </div>
+                            <div class="row">
+                                <span class="col-3">Build at: </span>
+                                <span class="col-9">{{ data.real_estate.build_at|date("d.m.Y") }}</span>
+                            </div>
+                            <div class="row">
+                                <span class="col-3">Description: </span>
+                                <span class="col-9">{{ data.real_estate.description }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- anfang 2. Spalte, 1. Zeile -->
+                    <div class="col-lg-5 px-0 {{ border }}my-1">
+                        <div class="col-lg-12 py-2 bg-light{{ borderbot }}"><i
+                                    class="fa fa-briefcase"></i> {{ "Real Estate Agent"|title }}
+                        </div>
+                        <div class="mx-2">
+                            <strong><a href="/fa17g16/user/{{ data.real_estate.seller.id }}">{{ data.real_estate.seller.first_name }} {{ data.real_estate.seller.last_name }}</a></strong>
+                        </div>
+                        <div class="row mx-1">
+                            <div class="col-lg-8">
+                                <div><i class="fa fa-envelope fa-fw"></i> E-Mail: {{ data.real_estate.seller.email }}</div>
+                                <div><i class="fa fa-building fa-fw"></i> Works for: {{ data.real_estate.seller.agency.name }}</div>
+                            </div>
+                            <div class="col-lg-4" style="min-width: 142px;">
+                                <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal"
+                                        data-target="#contactModal">
+                                    <i class="fa fa-vcard"></i> Contact
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Modal -->
+                        <div id="contactModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                  {% if user %}
+                                      <div class="modal-header text-left">
+                                          <h4 class="modal-title">Contact Form</h4>
+                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      </div>
+                                      <div class="modal-body">
+                                          <form id="contactForm"
+                                                action="/fa17g16/messaging/contactrequest/{{ data.real_estate.seller.id }}"
+                                                method="post" style="margin-top: 2%">
+                                              <div class="row">
+                                                  <input type="hidden" name="real_estate" value="{{data.real_estate.id}}">
+                                                  <div class="form-group col-lg-6">
+                                                      <label for="firstName">Header</label>
+                                                      <input type="text" name="header" value="" class="form-control"
+                                                             id="first_name" aria-describedby="emailHelp">
+                                                  </div>
+                                              </div>
+                                              <div class="form-group">
+                                                  <label for="message">Message</label>
+                                                  <textarea type="text" name="body" class="form-control" id="message"
+                                                            aria-describedby="emailHelp" cols="35"
+                                                            rows="6"></textarea>
+                                              </div>
+                                          </form>
+                                      </div>
+                                      <div class="modal-footer">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                          </button>
+                                          <button type="submit" class="btn btn-default" id="sendRequest">Send
+                                              Request
+                                          </button>
+                                      </div>
+                                  
+                                  {% else %}
+                                  
+                                      <div class="modal-header text-left">
+                                          <h4 class="modal-title">Please first Login</h4>
+                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      </div>
+                                      <div class="modal-body">
+                                        
+                                              <div class="row">
+                                                  <div class="form-group">
+                                                      <h5 class="ml-3">User is not logged in</h5>
+                                                  </div>
+                                              </div>
+                                              <div class="row">
+                                                  <div class="col-lg-4" style="min-width: 142px;">
+                                                      <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal"
+                                                              data-target="#contactModal">
+                                                          <i class="fa" aria-hidden="true">OK</i>
+                                                      </button>
+                                                  </div>
+                                              </div>
+                                    </div>{% endif %}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row d-flex justify-content-between px-2">
+                    <div class="col-lg-12 px-0 {{ border }}my-1">
+                        <div class="col-lg-12 py-2 bg-light{{ borderbot }}"><i
+                                    class="fa fa-list-alt"></i> {{ "Real Estate Equipment"|title }}
+                        </div>
+                        <!--Darstellung der Equipment_name von jedem Haus-->
+                        <div class="cols mx-2 col-lg-12">
+                            {% for j in 0..data.real_estate.equipment.length-1 %}
+                                <!-- <h6>{#{{ data.real_estate[j].equipment.equipment_type }}#}</h6>-->
+                                <p class="my-1"><i
+                                            class="fa fa-arrow-circle-o-right"></i> {{ data.real_estate.equipment[j].equipment_name }}
+                                    <small>{{ data.real_estate.equipment[j].equipment_type|replace('_',' ') }}</small>
+                                </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% include 'real_estate/additional_cost.twig' %}
+                <!-- test if a familiy member is a child - if so add a map for schools in this area (also visible to admin / seller) -->
+                {% set kidOutput = 0 %}
+                {% if  (user.isAdmin) or (userdata.id == data.real_estate.seller_id) %}
+                    {% set kidOutput = 1 %}
+                {% endif %}
+                {% for fam in userdata.family %}
+                    {% if kidOutput == 0 and ((fam.type == "kid") or (user.isAdmin) or (userdata.id == data.real_estate.seller_id)) %}
+                        {% set kidOutput = 1 %}
+                    {% endif %}
+                {% endfor %}
+                {% if kidOutput == 1 %}
+                        <div class="row d-flex justify-content-between px-2">
+                            <div class="col-lg-6 px-0 {{ border }} my-1 section-padding">
+                                <div class="py-2 bg-light{{ borderbot }}"><i
+                                            class="fa fa-users "></i> {{ "This could be interesting for your kids "|title }}
+                                </div>
+                                <div id="map_school" style="height:400px" class="rounded"></div>
+                            </div>
+                            <div class="col-lg-5 px-0 {{ border }} my-1 section-padding">
+                                <div style="overflow: scroll; height:400" class="py-2 bg-light{{ borderbot }}"><i
+                                            class="fa fa-graduation-cap"></i> {{ "most prominent schools"|title }}
+                                </div>
+                                <div id="promSchool" style="overflow: scroll; height: 400px;"></div>
+                            </div>
+                        </div>
+                {% endif %}
+                <!-- test if a familiy member uses public trasport - if so add a map for schools in this area (also visible to admin / seller) -->
+                {% set pubtOutput = 0 %}
+                {% if  (user.isAdmin) or (userdata.id == data.real_estate.seller_id) %}
+                    {% set pubtOutput = 1 %}
+                {% endif %}
+                {% for fam in userdata.family %}
+                    {% if pubtOutput == 0 and ((fam.usePublicTransport == 1) or (user.isAdmin) or (userdata.id == data.real_estate.seller_id)) %}
+                        {% set pubtOutput = 1 %}
+                    {% endif %}
+                {% endfor %}
+                {% if pubtOutput == 1 %}
+                        <div class="row mt-3 d-flex justify-content-between px-2">
+                            <div class="col-lg-6 px-0 {{ border }} my-1 section-padding">
+                                <div class="py-2 bg-light{{ borderbot }}"><i
+                                  class="fa fa-train"></i>
+                                  <i class="fa fa-bus"></i>
+                                  <i class="fa fa-car"></i> {{ "This could be interesting for you"|title }}
+                                </div>
+                                <div id="map_pubt" style="height:400px" class="rounded"></div>
+                            </div>
+                            <div style="overflow: scroll" class="col-lg-5 px-0 {{ border }} my-1 section-padding">
+                                <div class="py-2 bg-light{{ borderbot }}"><i
+                                            class="fa fa-bus"></i> {{ "most prominent stations"|title }}
+                                </div>
+                                <div id="promPubt" style="overflow: scroll; height: 400px;"></div>
+                            </div>
+                        </div>
+                {% endif %}
+            </div>
+        </div>
+        
+      
+        <script>
+          //To make map, needs lat and lng
+          // A $( document ).ready() block.
+          var map_estate;
+          var map_school;
+          var map_pubt;
+          var infowindow_school;
+          var infowindow_pubt;
+          
+          function initMap()
+          {
+              //map_estate
+              //___________________________________________________________________________________________
+              var options_estate = {
+                  zoom  : 15,
+                  center: {lat: 50.106514, lng: 8.662368}
+              }
+              map_estate   = new google.maps.Map(document.getElementById('map'), options_estate);
+          
+              var geocoder = new google.maps.Geocoder();
+              geocodeAddress(geocoder, map_estate);
+              
+              //map_school
+              //___________________________________________________________________________________________
+              //test if div for school map is available - if so - initialize the map and add markers
+              if ( $('#map_school').length ){
+                var options_pt = {
+                    zoom  : 15,
+                    center: {lat: 50.106514, lng: 8.662368}
+                }
+                map_school       = new google.maps.Map(document.getElementById('map_school'), options_pt);
+                geocodeAddress(geocoder, map_school, "school");          
+              }
+              
+              if ( $('#map_pubt').length ){
+                var options_pt = {
+                    zoom  : 15,
+                    center: {lat: 50.106514, lng: 8.662368}
+                }
+                map_pubt       = new google.maps.Map(document.getElementById('map_pubt'), options_pt);
+                geocodeAddress(geocoder, map_pubt, "pubt");          
+              }
+              
+          }
+
+          //Gives lat and lng from address
+          function geocodeAddress(geocoder, resultsMap, toInit)
+          {
+              var address = "{{ data.real_estate.adress.street }}, {{ data.real_estate.adress.zipcode.zipcode }}";
+              geocoder.geocode({'address': address}, function (results, status)
+              {
+                  if (status === 'OK')
+                  {
+                      resultsMap.setCenter(results[0].geometry.location);
+                      var marker  = new google.maps.Marker({
+                           map     : resultsMap,
+                           position: results[0].geometry.location
+                      });
+                      //realize Makers for school in this map
+                      if (toInit == "school"){
+                        initSchool(); 
+                      }
+                      if (toInit == "pubt"){
+                        initPubt(); 
+                      }
+                  } else
+                  {
+                      alert('Geocode was not successful for the following reason: ' + status);
+                      return false;
+                  }
+              });
+          }  
+          
+          function initSchool() {
+
+            infowindow_school = new google.maps.InfoWindow();
+            var service = new google.maps.places.PlacesService(map_school);
+
+            service.nearbySearch({
+              
+              location: map_school.getCenter(),
+              radius: 5000,
+              type: ['school'],
+              rankBy: google.maps.places.RankBy.PROMINENCE
+            }, callbackSchool);
+          }
+          
+          function initPubt() {
+
+            infowindow_pubt = new google.maps.InfoWindow();
+            var service = new google.maps.places.PlacesService(map_pubt);
+
+            service.nearbySearch({
+              
+              location: map_pubt.getCenter(),
+              radius: 5000,
+              type: ['bus_station'],
+              rankBy: google.maps.places.RankBy.PROMINENCE
+            }, callbackPubt);
+          }
+          
+          function setCenterSchool(location){
+            map_school.setCenter(location);
+          }
+          function callbackSchool(results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+              for (var i = 0; i < results.length; i++) {
+                console.log(results[i].geometry.location);
+                if(i <= 4){          
+                  if (results[i].photos){
+                    photo = results[i].photos[0].getUrl({'maxWidth': 150, 'maxHeight': 150});
+                    $('#promSchool').append('<table><tr><td><p><img class="mt-2 rounded" src="'+photo+'"/></p></td>'
+                        +'<td><p>'+results[i].name+'<br>'+results[i].vicinity+'</p></td></tr></table><hr>');
+                    console.log(photo);
+                  }else{
+                    $('#promSchool').append('<i class="fa fa-picture-o" aria-hidden="true"></i> no photo');
+                    $('#promSchool').append('<p>'+results[i].name+'<br>'+results[i].vicinity+'</p><hr>');
+                  }
+                  
+                  //console.log(photo);
+                  createMarkerSchool(results[i], true);
+                }
+                else {
+                  createMarkerSchool(results[i], false);
+                }
+              }
+            }
+          }
+          
+          function callbackPubt(results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+              for (var i = 0; i < results.length; i++) {
+                //console.log(results[i]);
+                if(i <= 4){          
+                  if (results[i].photos){
+                    photo = results[i].photos[0].getUrl({'maxWidth': 150, 'maxHeight': 150});
+                    $('#promPubt').append('<table><tr><td><p><img class="mt-2 rounded" src="'+photo+'"/></p></td>'
+                        +'<td><p>'+results[i].name+'<br>'+results[i].vicinity+'</p></td></tr></table><hr>');
+                    console.log(photo);
+                  }else{
+                    $('#promPubt').append('<i class="fa fa-picture-o" aria-hidden="true"></i> no photo');
+                  }
+                  $('#promPubt').append('<p>'+results[i].name+'<br>'+results[i].vicinity+'</p><hr>');
+                  createMarkerPubt(results[i], true);
+                }
+                else {
+                  createMarkerPubt(results[i], false);
+                }
+              }
+            }
+          }
+
+          function createMarkerSchool(place, prominent) {
+            var placeLoc = place.geometry.location;
+            if (prominent == false){
+              var marker = new google.maps.Marker({
+                map: map_school,
+                position: place.geometry.location,
+                icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+              });
+            }
+            else{
+              var marker = new google.maps.Marker({
+                map: map_school,
+                position: place.geometry.location,
+                icon: "http://maps.google.com/mapfiles/ms/micons/flag.png"
+              });
+            }
+        
+
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow_school.setContent(place.name);
+              infowindow_school.open(map_school, this);
+            });
+          }
+          
+          function createMarkerPubt(place, prominent) {
+            var placeLoc = place.geometry.location;
+            if (prominent == false){
+              var marker = new google.maps.Marker({
+                map: map_pubt,
+                position: place.geometry.location,
+                icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+              });
+            }
+            else{
+              var marker = new google.maps.Marker({
+                map: map_pubt,
+                position: place.geometry.location,
+                icon: "http://maps.google.com/mapfiles/ms/micons/flag.png"
+              });
+            }
+
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow_pubt.setContent(place.name);
+              infowindow_pubt.open(map_pubt, this);
+            });
+          }
+
+        </script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4s97SLkuoB3Z1OVZvqellzR3oJ-k5I7M&libraries=places&callback=initMap">
+        </script>
+        <script>
+            $('#sendRequest').click(function (){
+                  $('#contactForm').submit();
+            });
+        
+        </script>
+    {% endif %}
+    {% if user.isAdmin %}
+        <pre>
+                data of logged in user:
+            {{ dump(userdata) }}
+            data for this site:
+            {{ dump(data) }}
+            </pre>
+    {% endif %}
+{% endblock %}

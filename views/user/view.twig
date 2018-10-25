@@ -1,0 +1,143 @@
+{% extends 'layout.twig' %}
+{% set border = " border boder-dark rounded " %}
+{% set borderbot = " border boder-dark border-top-0 border-left-0 border-right-0" %}
+{% block body %}
+    {% set ratings_amount = 0 %}
+    {% set ratings_sum = 0 %}
+    {% for rating in data.user.agent_ratings %}
+        {% set ratings_amount = ratings_amount+1 %}
+        {% set ratings_sum = ratings_sum + (rating.rating * 2) %}
+    {% endfor %}
+    {% set ratings_avg = (ratings_sum/ratings_amount) %}
+<div class="row mt-2">
+    <div class="col-lg-3" id="textDiv">
+        <div class="card">
+            <center>
+                    <img class="card-img-top" src="{% if data.user.profilepicture is empty %}http://localhost/public/images/nopicture.png{% else %}{{ data.user.profilepicture }}{% endif %}"
+                         style="width:90%; max-width:300px; margin-top:20px">
+             </center>
+            <div class="card-body">
+                <h4 class="card-title">{{ data.user.first_name }} {{ data.user.last_name }}</h4>
+                {% if user.isAdmin %}
+                    <!-- show only to admin -->
+                    <p class="card-text"> E-Mail: {{ data.user.email }}</p>
+                    <p class="card-text"> Phone: {{ data.user.phone }}</p>
+                    <p class="card-text"> Mobile: {{ data.user.mobile }}</p>
+                    <p class="card-text"> Adress: {{ data.user.adress_id }}</p>
+                {% endif %}
+                <div class="review-block-title">
+                    {% if ratings_sum > 0 %}
+                        {% set stars = (ratings_avg|round(0)/2) %}
+                        {% set starsleft = 5-stars %}
+
+                        {% if stars >= 1 %}
+                            {% for i in 1..stars %}
+                                <i class="fa fa-star"></i>
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if ratings_avg|round(0) is odd %}
+                            <i class="fa fa-star-half-o"></i>
+                        {% endif %}
+
+                        {% if starsleft >= 1 %}
+                            {% for i in 1..starsleft %}
+                                <i class="fa fa-star-o"></i>
+                            {% endfor %}
+                        {% endif %}
+
+                    {% else %}
+                        <i class="fa fa-star-o"></i> Not rated yet.
+                        Be the first to rate {{ data.user.first_name }} {{ data.user.last_name }}.
+                    {% endif %}
+                </div>
+                <button type="button" class="btn btn-secondary" onClick="setFormActionRating({{ data.user.id }})"
+                        data-toggle="modal" data-target="#ratingModal">
+                    <i class="fa fa-star"></i> Rate Agent
+                </button>
+                <div>
+                    {% if ratings_sum > 0 %}
+                        <h6>Latest Ratings:</h6>
+                        {% for rating in data.user.agent_ratings|reverse %}
+                            <div class="{{ border }}" style="width:100%; margin-top:10px;">
+                                <div style="margin:10px;">
+                                    <div>{{ rating.created_at|date("d.m.Y") }} </div>
+                                    <div> {% set stars = (rating.rating|round(1,'floor')) %}
+                                        {% set starsleft = 5-(stars|round(1,'floor')) %}
+                                        {% for i in 1..stars %}
+                                            <i class="fa fa-star"></i>
+                                        {% endfor %}
+                                        {% if starsleft > 0 %}
+                                            {% for i in 1..starsleft|round(0,'floor') %}
+                                                <i class="fa fa-star-o"></i>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                    <div>{{ rating.comment }}</div>
+                                </div>
+                            </div>
+                        {% else %}
+                            not rated yet
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="agencies section-padding2 {{ border }}" id="textDiv">
+            <div class="{{ borderbot }} bg-light pl-2 py-2"><i class="fa fa-home"></i> {{ "real estates"|title }}</div>
+            <div class="agents d-flex justify-content-center flex-wrap">
+                {% for realty in data.user.selling_real_estate %}
+                    {% if realty.isActive == 1 %}
+                        <div class="list-group m-2">
+                            <a href="/fa17g16/real_estate/{{ realty.id }}"
+                               class="list-group-item list-group-item-action">
+                                <div class="row">
+                                    <div class="col-lg-4" style="min-width:200px;">
+                                        <img src="{{ realty.medias[0].path }}"
+                                             class="rounded mx-auto d-block img-fluid img-thumbnail"
+                                             style="width: 100%; min-width:200px; max-width:300px;">
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <h5 class="mb-1">{{ realty.header }}</h5>
+                                                </div>
+                                                <p class="mb-1">Size: {{ realty.size|number_format(1, ',','.') }}</p>
+                                                <p class="mb-1">Address: {{ realty.adress.street }}</p>
+                                                <p class="mb-1">Location: {{ realty.adress.zipcode.location }}
+                                                    , {{ realty.adress.zipcode.zipcode }}</p>
+                                                <p class="mb-1">Cost: {{ realty.cost|number_format(2, ',','.') }} $</p>
+                                            </div>
+                                            <div class="col-lg-7">
+                                                <p class="mb-1">Rooms:{{ realty.rooms }}</p>
+                                                <p class="mb-1">Build at: {{ realty.build_at|date("d.m.Y") }}</p>
+                                                <p>Description: {{ realty.description }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row col">
+                                            <!--Darstellung von Filterergebnisse-->
+                                            {% for equip in realty.equipment %}
+                                                <span class="badge badge-primary mr-1">{{ equip.equipment_name|replace({'_':' '}) }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endif %}
+                {% else %}
+                    <div>This agent has no real estates yet.</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'user/user-rating.twig' %}
+<div class="row mb-2 ml-auto mr-auto">{% include 'partials/user_roles_badge.twig' with data.user.roles %}</div>
+{% if user.isAdmin %}
+    <pre>{{ dump(data) }}</pre>
+{% endif %}
+{% endblock %}

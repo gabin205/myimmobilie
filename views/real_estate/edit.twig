@@ -1,0 +1,285 @@
+{% extends 'layout.twig' %}
+{% set border = " border boder-dark rounded " %}
+{% set borderbot = " border boder-dark border-top-0 border-left-0 border-right-0" %}
+{% set typeaheadstyle = 'style="-ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    margin-bottom: 0;
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;"' %}
+<script>
+    .adress - zipcode - typeahead
+    {
+        width: 100 %;
+    }
+</script>
+{% block sidebar %}
+    <div class="row ml-1 mt-5 sticky-top">
+        <center>
+            <div class="container-fluid">
+                <center><a href="/fa17g16/real_estate/{{ data.real_estate.id }}" class="button">View Object</a></center>
+            </div>
+        </center>
+    </div>
+
+{% endblock %}
+{% block body %}
+    {% if data.real_estate.not_allowed %}
+        <p class="text-danger">you are not allowed to view this real estate</p>
+        <p class="text-info"><a href="/fa17g16">You can go back to our search and look for other real estates.</a></p>
+    {% else %}
+        <div class="container pb-2">
+            <div class="row d-flex justify-content-between">
+                <div class="col-lg-6 px-0 {{ border }}my-1">
+                    <div class="col-lg-12 py-2 bg-light{{ borderbot }}"><i
+                                class="fa fa-drivers-license-o"></i> {{ "information"|title }}
+                    </div>
+                    <div class="col-lg-12">
+                        Please be aware: if you once initialize a field with an value, you can not let it empty!
+                    </div>
+                    <div class="col-lg-12">
+                        <form action="/fa17g16/real_estate/edit/{{ data.real_estate.id }}" method="post"
+                              class="form-group d-flex justify-content-between flex-wrap form-inline mx-1"
+                              id="inforeal_estate">
+
+
+                            <div class="input-group mb-2 mb-sm-0 my-1 input-group-sm col-lg-12">
+                                <div class="input-group-addon">Ad Header</div>
+                                <input type="text" name="header" placeholder="This is a header"
+                                       value="{{ data.real_estate.header }}"
+                                       class="form-control">
+                            </div>
+
+                            <div class="input-group mb-2 mb-sm-0 my-1 input-group-sm col-lg-9">
+                                <div class="input-group-addon">Street</div>
+                                <input type="text" name="street" placeholder="street"
+                                       value="{{ data.real_estate.adress.street }}"
+                                       class="form-control" disabled>
+                                <div class="input-group-addon"><i class="fa fa-map-marker"></i></div>
+                            </div>
+
+                            <div class="input-group mb-2 mb-sm-0 my-1 input-group-sm col-lg-6">
+                                <div class="input-group-addon">Zipcode</div>
+                                <input type="text" name="zipcode" placeholder="zipcode"
+                                       value="{{ data.real_estate.adress.zipcode.zipcode }}"
+                                       class="form-control adress-zipcode-typeahead typeahead" {{ typeaheadstyle }}
+                                       disabled>
+                                <div class="input-group-addon"><i class="fa fa-map-marker"></i></div>
+                            </div>
+                            <div class="input-group mb-2 mb-sm-0 my-1 input-group-sm col-lg-6">
+                                <div class="input-group-addon">Location</div>
+                                <input type="text" name="location" placeholder="location"
+                                       value="{{ data.real_estate.adress.zipcode.location }}"
+                                       class="form-control adress-location-typeahead typeahead" {{ typeaheadstyle }}
+                                       disabled>
+                                <div class="input-group-addon"><i class="fa fa-map-marker"></i></div>
+                            </div>
+
+                            <div class="input-group mb-2 mb-sm-0 my-1 input-group-sm col-lg-6">
+                                <div class="input-group-addon">size</div>
+                                <input type="number" name="size" placeholder="size in m²"
+                                       value="{{ data.real_estate.size }}"
+                                       class="form-control">
+                                <div class="input-group-addon"><i class="fa fa-arrows-alt"></i></div>
+                            </div>
+
+                            <div class="input-group mb-2 mb-sm-0 my-1 input-group-sm col-lg-6">
+                                <div class="input-group-addon">cost</div>
+                                <input type="number" name="cost" placeholder="in €" value="{{ data.real_estate.cost }}"
+                                       class="form-control">
+                                <div class="input-group-addon"><i class="fa fa-money"></i></div>
+
+                            </div>
+
+                            <div class="input-group mb-2 mb-sm-0 my-1 input-group-sm col-lg-6">
+                                <div class="input-group-addon">running cost</div>
+                                <input type="number" name="running_cost" placeholder="in €"
+                                       value="{{ data.real_estate.running_cost }}"
+                                       class="form-control">
+                                <div class="input-group-addon"><i class="fa fa-money"></i></div>
+                            </div>
+                            <div class="input-group mb-2 mb-sm-0 my-1 input-group-sm col-lg-6">
+                            </div>
+                            <div class="input-group mb-2 mb-sm-0 my-1 input-group-sm col-lg-6">
+                                <div class="input-group-addon">rooms</div>
+                                <input type="number" name="rooms" value="{{ data.real_estate.rooms }}"
+                                       class="form-control">
+                                <div class="input-group-addon"><i class="fa fa-home"></i></div>
+                            </div>
+                            <div class="input-group mb-2 mb-sm-0 my-1 input-group-sm col-lg-6">
+                                <div class="input-group-addon">energy efficiency</div>
+                                <select class="form-control" name="energy_efficiency" size="1">
+                                    <option>{{ data.real_estate.energy_efficiency }}</option>
+                                    <option>A+</option>
+                                    <option>A</option>
+                                    <option>B</option>
+                                    <option>C</option>
+                                    <option>D</option>
+                                    <option>E</option>
+                                    <option>F</option>
+                                    <option>G</option>
+                                    <option>H</option>
+                                </select>
+                                <div class="input-group-addon"><i class="fa fa-bolt"></i></div>
+                            </div>
+                            <div class="input-group mb-2 mb-sm-0 my-1 input-group-sm col-lg-12">
+                                <div class="input-group-addon">builded at</div>
+                                <div class="input-group-addon"><i class="fa fa-clock-o"></i></div>
+                                <input type="date" name="build_at"
+                                       class="form-control" placeholder="JJJJ-MM-DD HH:MM:SS">
+                                <div class="input-group-addon"><i class="fa fa-clock-o"></i></div>
+                                <input type="text" placeholder="-" value="{{ data.real_estate.build_at }}"
+                                       class="form-control" disabled>
+                            </div>
+                            <div class="input-group mb-2 mb-sm-0 my-1 input-group-sm col-lg-12">
+                                <div class="input-group-addon"><i class="fa fa-info-circle"></i></div>
+                                <textarea rows="15" style="width:100%" name="description" form="inforeal_estate"
+                                          placeholder="{{ data.real_estate.description }}"></textarea>
+                                <div class="input-group-addon">description</div>
+                            </div>
+
+                            <div class="input-group mb-2 mb-sm-0 my-1 mt-3 input-group-sm col-lg-6">
+                            <span class="input-group-addon">
+                              <input type="checkbox"
+                                     name="isActive" {% if data.real_estate.isActive == "1" %} checked {% endif %}>
+                            </span>
+                                <span class="input-group-addon">Activate this Object</span>
+                            </div>
+                            <div class="col-lg-12 mt-3">
+                                <a href="/fa17g16/real_estate/edit/{{ data.real_estate.id }}"><input type="button"
+                                                                                                     class="btn btn-secondary fa mx-1 my-1"
+                                                                                                     value="{{ "refresh information"|title }}"></a>
+
+                                <input type="submit" class="btn btn-secondary fa mx-1 my-1"
+                                       value="{{ "save information"|title }}">
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-5 px-0 {{ border }}my-1">
+                    <div class="col-lg-12 py-2 bg-light{{ borderbot }}"><i
+                                class="fa fa-picture-o"></i> {{ "extras"|title }}
+                    </div>
+                    <form action="/fa17g16/real_estate/edit/extras/{{ data.real_estate.id }}" method="post"
+                          class="form-group d-flex justify-content-between flex-wrap mx-1" id="extrareal_estate">
+                        <div class="group text-left mx-1">
+                            <!-- Array for equipment types -->
+                            {% set arr = [] %}
+                            {% set arr1 = [] %}
+                            <!-- write types in array -->
+                            {% for equipment in data.equipments %}
+                                {% if equipment.equipment_type not in arr %}
+                                    {% set arr = arr|merge([equipment.equipment_type]) %}
+                                {% endif %}
+                            {% endfor %}
+                            {% for equipment in data.real_estate.equipment %}
+                                {% if equipment.equipment_type not in arr1 %}
+                                    {% set arr1 = arr1|merge([equipment.equipment_name]) %}
+                                {% endif %}
+                            {% endfor %}
+                            <div class="row">
+                                {% for type in arr %}
+                                    <!-- for every type a new column -->
+                                    <div class="col-sm">
+                                        <!-- heading -->
+                                        <h4 class="alert alert-dark rounded mt-1 mb-2">{{ type|replace({'_':' '}) }}</h4>
+                                        <div class="equipment-type-items mx-1">
+                                            <!-- write values from data in columns -->
+                                            {% for equipment in data.equipments %}
+                                                {% if equipment.equipment_type == type %}
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input class="text-left" type="checkbox" name="equipment[]"
+                                                                   value="{{ equipment.equipment_name }}" {% if equipment.equipment_name in arr1 %} checked {% endif %}>
+                                                            {{ equipment.equipment_name|replace({'_':' '}) }}
+                                                        </label>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mt-3">
+                            <a href="/fa17g16/real_estate/edit/{{ data.real_estate.id }}"><input type="button"
+                                                                                                 class="btn btn-secondary fa mx-1 my-1"
+                                                                                                 value="{{ "refresh information"|title }}"></a>
+
+                            <input type="submit" class="btn btn-secondary fa mx-1 my-1"
+                                   value="{{ "save information"|title }}">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-between">
+                <div class="col-lg-8 px-0 {{ border }}my-1">
+                    <div class="col-lg-12 py-2 bg-light{{ borderbot }}"><i
+                                class="fa fa-picture-o"></i> {{ "images"|title }}
+                    </div>
+                    <form enctype="multipart/form-data"
+                          action="/fa17g16/real_estate/edit/images/{{ data.real_estate.id }}" method="post"
+                          class="form-group d-flex justify-content-between flex-wrap form-inline mx-1">
+                        <div class="container-fluid mt-3">
+                            <div id="fileinput">
+                                <p>Please choose a representing picture of your house:</p>
+                                <p><input type="file" id="file0" name="file0" accept="image/*"/></p>
+                                <p>If you wish to add more images of your house (e.g. of the bath oder the kitchen)
+                                    please click on "Add Image"!</p>
+                            </div>
+                            <b>Info:</b><br>
+                            Pictures need their time to upload. Be aware if you preview the Advertisement!
+                        </div>
+                        <div class="container-fluid">
+
+                            <input type="button" class="btn btn-secondary fa mx-1 my-1" id="add-file-field" name="add"
+                                   value="Add Image"/>
+                            <input type="submit" class="btn btn-secondary fa mx-1 my-1"
+                                   value="{{ "Upload Pictures"|title }}">
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <center><a href="/fa17g16/real_estate/{{ data.real_estate.id }}" class="button">View Object</a></center>
+            </div>
+        </div>
+    {% endif %}
+    <script>
+        $(document).ready(function ()
+                          {
+                              // This will add new input field
+                              var i = 0;
+                              $("#add-file-field").click(function ()
+                                                         {
+                                                             i++;
+                                                             $("#fileinput")
+                                                                 .append("<div class='added-field'><input type='file' id='file" +
+                                                                         i + "'name='file" + i +
+                                                                         "' accept='image/*'/><input type='button' class='btn btn-secondary fa mx-1 my-1 remove-btn' value='Remove' /></div>");
+                                                         });
+                              // The live function binds elements which are added to the DOM at later time
+                              // So the newly added field can be removed too
+                              $(document).on("click", ".remove-btn", function ()
+                              {
+                                  $(this).parent().remove();
+                              });
+
+                          });
+    </script>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div id="aboutTim">
+    <div class="row">
+        <!-- Rand aus 3 Spalten -->
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6" id="timtitle">
+            <h3>About Tim Hofer</h3>
+        </div>
+        <!-- Rand aus 3 Spalten -->
+        <div class="col-lg-3"></div>
+    </div>
+
+    <!-- Neue Reihe -->
+    <div class="row">
+        <!-- Rand aus 4 Spalten -->
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4" id="profilepic"><img class="roundedpic"
+                                                   src="https://static.pexels.com/photos/38278/tiger-head-wildlife-animal-38278.jpeg"
+                                                   width="100%" height="100%">
+        </div>
+        <!-- Rand aus 4 Spalten -->
+        <div class="col-lg-4"></div>
+    </div>
+
+    <!-- Leerzeile -->
+    <div class="row">
+        <div class="col-lg-12 emptyrow"></div>
+    </div>
+
+    <!-- Neue Reihe -->
+    <div class="row">
+        <!-- Rand aus 2 Spalten -->
+        <div class="col-lg-2"></div>
+
+        <div class="col-lg-2">
+            <div class="row">
+                <div class="col-lg-12 borderedcolumn">
+                    <address>
+                        <h4><u>Personal Information</u></h4>
+                        <strong>Tim Hofer</strong><br>
+                        <a href="mailto:#">tim.hofer@informatik.hs-fulda.de</a>
+                        <br><br>
+                        <strong>Hochschule Fulda</strong><br>
+                        Leipziger Straße 123<br>
+                        Fulda, 36037<br>
+                        <abbr title="Phone">Phone:</abbr> 0661 9640-0
+                    </address>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 ml-auto borderedcolumn">
+            <h4><u>Education</u></h4>
+            {% for row in data.education %}
+                <strong>{{ row.year }}</strong><br>
+                {{ row.name }}<br><br>
+            {% else %}
+                <strong>N / A</strong><br>
+                No Data Available<br><br>
+            {% endfor %}
+        </div>
+
+        <div class="col-lg-2 ml-auto">
+            <div class="row">
+                <div class="col-lg-12 borderedcolumn">
+                    <h4><u>Favorite quote</u></h4>
+                    “Whoever does what he already knows, always remains what he already is”<br><br>
+                    Henry Ford<br><br>
+                </div>
+            </div>
+
+            <!-- Leerzeile -->
+            <div class="row">
+                <div class="col-lg-12 emptyrow"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 borderedcolumn">
+                    <h4><u>My role in the project</u></h4>
+                    Within the project, I assume the role of team leader. Personally, I would like to enrich my previous
+                    experience of working in a research project and during my studies by leading the team.<br><br>
+                </div>
+            </div>
+        </div>
+        <!-- Rand aus 2 Spalten -->
+        <div class="col-lg-2"></div>
+    </div>
+
+    <!-- Leerzeile -->
+    <div class="row">
+        <div class="col-lg-12 emptyrow"></div>
+    </div>
+</div>
+{% endblock %}

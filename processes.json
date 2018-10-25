@@ -1,0 +1,23 @@
+//processes.json:
+{
+  "apps": [
+    {
+      "name":            "fa17g16ExpressApp",
+      "script":          "bin/www",
+      "watch":           [
+        "routes",
+        "views",
+        "app.js",
+        "package.json",
+        "package-lock.json",
+        "config",
+        "models"
+      ],
+      "env":             {
+        "PORT":     17016,
+        "NODE_ENV": "development"
+      },
+      "log_date_format": "YYYY-MM-DD HH:mm Z"
+    }
+  ]
+}

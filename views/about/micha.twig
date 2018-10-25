@@ -1,0 +1,101 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <!-- // http://lists.evolt.org/archive/Week-of-Mon-20040202/154813.html -->
+    <script type="text/javascript">
+        function gen_mail_to_link(lhs, rhs, subject) {
+            document.write("<a href=\"mailto");
+            document.write(":" + lhs + "@");
+            document.write(rhs + "?subject=" + subject + "\">" + lhs + "@" + rhs + "<\/a>");
+        }
+    </script>
+    <div id="aboutMicha" class="row">
+        <div class="col-lg-3 mynav">
+            <div id="navbar-cv" class="navbar navbar-light col-3" role="tablist">
+                <a class="navbar-brand" href="#">About Micha Heiderich</a>
+                <nav class="nav nav-pills flex-column" style="">
+                    <a class="nav-link" href="#item-1">Personal Data</a>
+                    <a class="nav-link" href="#item-2">Career</a>
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link ml-3 my-1" href="#item-2-1">Educational</a>
+                        <a class="nav-link ml-3 my-1" href="#item-2-2">Professional</a>
+                    </nav>
+                    <a class="nav-link" href="#item-3">Projekts / Experiences</a>
+                </nav>
+            </div>
+        </div>
+
+        <div id="cv" class="col-lg-9">
+            <h4 id="item-1">Personal Data</h4>
+            <personal class="flex space-around"><span class="image col-md-4"><img
+                            src="https://imgs.xkcd.com/comics/compiling.png" height="250"> </span>
+                <p class="col-md-7 bolder">
+                    <span class=" flex space-between"><span>Lastname, Forename</span><span>Heiderich, Micha</span></span>
+                    <span class=" flex space-between"><span>E-Mail</span>
+                        <span>
+                            <script type="text/javascript">    gen_mail_to_link('micha.heiderich', 'ai.hs-fulda.de', '[HOMEPage] Contact: ');</script>
+                            <noscript>
+                              <em>Email address protected by JavaScript. Activate JavaScript to see the email.</em>
+                            </noscript>
+                        </span>
+                    </span>
+                    <span class=" flex space-between"><span>Phone</span><span>on request</span></span>
+                    <span class=" flex space-between"><span>Address</span><span>on request</span></span>
+                    <span class=" flex space-between"><span>Date of birth</span><span>1X.0X.XX</span></span>
+                    <span class=" flex space-between"><span>Marital status</span><span>married</span></span>
+                </p>
+            </personal>
+            <br>
+            <h4 id="item-2">Career</h4>
+            <br>
+            <h5 id="item-2-1">Educational Career</h5>
+            <ul class="list-group color">
+                {% for row in data.career.education %}
+                    <li class="list-group-item">
+                        <span class="flex space-between"><span>{{ row.year }}</span><span>{{ row.title }}</span></span>
+                    </li>
+                {% else %}
+                    <li class="list-group-item">
+                        <span class="flex space-between"><span>XXXXXXXXXX</span><span>No Data</span></span>
+                    </li>
+                {% endfor %}
+            </ul>
+            <br>
+            <h5 id="item-2-2">Professional Career</h5>
+            <ul class="list-group color">
+                {% for row in data.career.professional %}
+                    <li class="list-group-item">
+                        <span class="flex space-between"><span>{{ row.year }}</span><span>{{ row.title }}</span></span>
+                    </li>
+                {% else %}
+                    <li class="list-group-item">
+                        <span class="flex space-between"><span>XXXXXXXXXX</span><span>No Data</span></span>
+                    </li>
+                {% endfor %}
+            </ul>
+            <br>
+            <h4 id="item-3">Projects / Experience</h4>
+            <table class="table table-hover tablebackground">
+                <thead>
+                <tr>
+                    <th scope="col">Project</th>
+                    <th scope="col">Technologies / Experiences</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in data.projects %}
+                    <tr>
+                        <td>{{ row.title }}</td>
+                        <td>{{ row.skill }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

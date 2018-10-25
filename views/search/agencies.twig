@@ -1,0 +1,82 @@
+{% extends 'layout.twig' %}
+{% set border = " border boder-dark rounded " %}
+{% set borderbot = " border boder-dark border-top-0 border-left-0 border-right-0" %}
+
+{% block body %}
+    <div class="agencies" id="textDiv">
+        <h1>{{ "real estate agencies"|title }}</h1>
+        <div class="list-group">
+            {% for agency in data.agencies %}
+                {% set ratings_amount = 0 %}
+                {% set ratings_sum = 0 %}
+                {% for agent in agency.agents %}
+                    {% for rating in agent.agent_ratings %}
+                        {% set ratings_amount = ratings_amount+1 %}
+                        {% set ratings_sum = ratings_sum + (rating.rating * 2) %}
+                    {% endfor %}
+                {% endfor %}
+                {% set ratings_avg = (ratings_sum/ratings_amount) %}
+
+                <div class="list-group-item my-1 rounded">
+                    <div class="row">
+                        <div class="col-lg-4 text-center">
+                            <img id="noPicture" {% if agency.profilepicture is empty %} src="{{ "http://192.168.73.186/public/images/nopicture.png" }}" style="max-width:70%;" {% else %} class="rounded" src="{{ agency.profilepicture }}" style="max-width:100%;" {% endif %}>
+                        </div>
+                        <div class="col-lg-4 section-padding2 {{ border }}" id="rowDiv">
+                            <a href="/fa17g16/search/agencies/show/{{ agency.id }}">
+                            <div class="col-lg-12 py-2 bg-light {{ borderbot }}"><i
+                                        class="fa fa-building fa-fw"></i> {{ agency.name }}</div>
+                            <div><i class="fa fa-phone fa-fw"></i> {{ agency.phone }}</div>
+                            <div><i class="fa fa-mobile fa-fw"></i> {{ agency.mobile }}</div>
+                            <div><i class="fa fa-address-book fa-fw"></i> {{ agency.register_court }}
+                                - {{ agency.register_number }}</div>
+                            <div><i class="fa fa-globe fa-fw"></i> {{ agency.website }}</div><br/>
+                            <div>{{ "employed agents:"|title }} {{ agency.agents.length }} <i
+                                        class="fa fa-users fa-fw"></i></div>
+                            <div>
+                                {% if ratings_sum > 0 %}
+                                    {% set stars = (ratings_avg|round(0)/2) %}
+                                    {% set starsleft = 5-stars %}
+
+                                    {% if stars >= 1 %}
+                                        {% for i in 1..stars %}
+                                            <i class="fa fa-star"></i>
+                                        {% endfor %}
+                                    {% endif %}
+
+                                    {% if ratings_avg|round(0) is odd %}
+                                        <i class="fa fa-star-half-o"></i>
+                                    {% endif %}
+
+                                    {% if starsleft >= 1 %}
+                                        {% for i in 1..starsleft %}
+                                            <i class="fa fa-star-o"></i>
+                                        {% endfor %}
+                                    {% endif %}
+
+                                {% else %}
+                                    <i class="fa fa-star-o"></i> Not rated yet.
+                                {% endif %}
+                            </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 section-padding2 {{ border }} offset-lg-1" id="rowDiv">
+                            <a href="/fa17g16/user/{{ agency.manager.id }}">
+                                <div class="py-2 bg-light"><i class="fa fa-briefcase fa-fw"></i> Manager</div>
+                                <div><i class="fa fa-user fa-fw"></i> {{ agency.manager.last_name }}
+                                    , {{ agency.manager.first_name }}</div>
+                                <div><i class="fa fa-envelope-square fa-fw"></i> {{ agency.manager.email }}</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+            {% endfor %}
+            {% if user.isAdmin %}
+                <pre>
+            {{ dump(data.agencies[0]) }}
+            </pre>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

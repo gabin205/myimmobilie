@@ -1,0 +1,41 @@
+.section-padding
+{
+    padding-left:  0px !important;
+    padding-right: 0px !important;
+}
+
+.section-padding > div
+{
+    padding-left:  .5rem;
+    padding-right: .5rem;
+}
+.section-padding a
+{
+    color: inherit;
+    text-decoration: none;
+}
+.section-padding a:hover
+{
+    text-decoration: none;
+}
+
+.section-padding2
+{
+    padding-left:  0px !important;
+    padding-right: 0px !important;
+}
+
+.section-padding2  div
+{
+    padding-left:  .5rem;
+    padding-right: .5rem;
+}
+.section-padding2 a
+{
+    color: inherit;
+    text-decoration: none;
+}
+.section-padding2 a:hover
+{
+    text-decoration: none;
+}

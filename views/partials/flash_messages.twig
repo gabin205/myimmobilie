@@ -1,0 +1,24 @@
+{% for info in sessionFlash.info %}
+    <div class="alert alert-success" role="alert">{{ info }}</div>
+{% endfor %}
+{% for error in sessionFlash.error %}
+    {% if error.data %}
+        {% for errorgroup in error %}
+            {% for errordetailkey in errorgroup|keys %}
+                {% set errordetail = errorgroup[errordetailkey] %}
+                <div class="alert alert-danger alert-important" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <div class="error-head col-lg-12 border border-light border-top-0 border-left-0 border-right-0">
+                        <h4>
+                            <i class="fa fa-exclamation-triangle"></i> {{ errordetailkey|title }}
+                            :&nbsp;{{ errordetail[0].keyword|title }}
+                        </h4>
+                    </div>
+                    <div class="error-body">{{ errordetail[0].message }}</div>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-danger" role="alert">{{ error }}</div>
+    {% endif %}
+{% endfor %}

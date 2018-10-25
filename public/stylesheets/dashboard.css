@@ -1,0 +1,61 @@
+#sidebar, #tabDiv {
+    border: 1px solid rgba(0, 0, 0, .125);
+    overflow-y: scroll;
+}
+
+#rowDiv  {
+    border: 1px solid rgba(0, 0, 0, .125);
+    margin-top: 20px;
+}
+
+#sidebarLi {
+    border-bottom: 1px solid #e1e6ea;
+    width: 100%;
+}
+
+#link, #body, #header {
+    color: black;
+    margin-top: 20px;
+}
+
+#replyBtn {
+    position: absolute;
+    top: 10px;
+    right: 40px;
+}
+
+#appointmentBtn {
+    position: absolute;
+    top: 10px !important;
+    right: 120px;
+}
+
+
+#sidebar .sidebar-header {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul p {
+    padding: 10px;
+}
+#sidebar ul li a {
+    padding: 10px;
+    display: block;
+    color: inherit;
+}
+/*
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    background: red;
+}
+*/
+#sidebar ul li a:hover, .nav-tabs li a {
+    color: inherit;
+    background: #e1e6ea;
+}

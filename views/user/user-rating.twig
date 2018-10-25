@@ -1,0 +1,38 @@
+<!-- Modal Rating -->
+<div id="ratingModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header text-left">
+                <h4 class="modal-title">Rating Form</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="ratingForm"
+                      action="/fa17g16/messaging/sellrequest/<putAgentIdHere>"
+                      method="post" style="margin-top: 2%">
+                    <div class="container">
+                        <div class="star-rating">
+                            <span class="fa fa-star-o" data-rating="1"></span>
+                            <span class="fa fa-star-o" data-rating="2"></span>
+                            <span class="fa fa-star-o" data-rating="3"></span>
+                            <span class="fa fa-star-o" data-rating="4"></span>
+                            <span class="fa fa-star-o" data-rating="5"></span>
+                            <input type="hidden" name="rating" class="rating-value" value="0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Comment</label>
+                        <textarea type="text" name="comment" class="form-control" id="message" cols="35"
+                                  rows="6"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-secondary" id="sendRating">Rate</button>
+            </div>
+        </div>
+
+    </div>
+</div>

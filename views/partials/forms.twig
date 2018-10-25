@@ -1,0 +1,10 @@
+{% macro input(name, value = "", type = "text", size = 20) %}
+    <input type="{{ type }}" name="{{ name }}" value="{{ value|e }}" size="{{ size }}"/>
+{% endmacro %}
+{% macro inputgroup(name, value = "", type = "text", size = 20, placeholder = "Your text here") %}
+    <div class="form-group">
+        <label for="form_{{ name }}">First Name</label>
+        <input type="{{ type }}" name="{{ name }}" class="form-control" id="form_{{ name }}" value="{{ value|e }}"
+               size="{{ size }}" placeholder="{{ placeholder }}">
+    </div>
+{% endmacro %}

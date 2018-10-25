@@ -1,0 +1,56 @@
+<form action="/fa17g16/search" method="post" style="margin-top: 2%">
+    <div class="row" style="margin-top: 1%">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 offset-lg-1">
+                    <div class="form-group">
+                        <label for="searchplace">Where do you search?</label><br>
+                        <input type="text" class="adress-complete-typeahead form-control" id="searchplace" placeholder="Enter Zipcode"
+                               name="searchplace" value="{{ data.formdata.searchplace }}" required>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1">
+                    <label for="searchplace">Price Range:</label><br>
+
+                    <div class="row input-group mb-1">
+                        <span class="input-group-addon" style="width:50px; margin-left: 1%">min</span>
+                        <input type="text" style="width:100px;" id="minCost" name="minCost"
+                               value="{{ data.formdata.minCost }}" class="form-control">
+                    </div>
+                    <div class="row input-group mb-1">
+                        <span class="input-group-addon" style="width:50px; margin-left: 1%">max</span>
+                        <input type="text" style="width:100px;" id="maxCost" name="maxCost"
+                               value="{{ data.formdata.maxCost }}" class="form-control">
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <label for="searchplace">Living Space Range:</label><br>
+                    <div class="row input-group mb-1">
+                        <span class="input-group-addon" style="width:50px; margin-left: 1%">min</span>
+                        <input type="text" style="width:100px;" id="minSpace" name="minSpace"
+                               value="{{ data.formdata.minSpace }}" class="form-control">
+                    </div>
+                    <div class="row input-group mb-1">
+                        <span class="input-group-addon" style="width:50px; margin-left: 1%">max</span>
+                        <input type="text" style="width:100px;" id="maxSpace" name="maxSpace"
+                               value="{{ data.formdata.maxSpace }}" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'search/search-filter.twig' %}
+    <div class="row" style="margin-top: 1%">
+        <div class="container-fluid">
+            <center>
+                <p id="zipcodeerror" style="color: red"></p>
+                <p id="costerror" style="color: red"></p>
+                <p id="spaceerror" style="color: red"></p>
+                <button type="submit" class="btn btn-secondary" onClick="return checkIfEmpty();"><i class="fa fa-search"></i> Find</button>
+                <button style="margin-left:2%" type="reset" class="btn btn-secondary" onClick="resetErrors();">
+                    <i class="fa fa-times"></i>  Reset
+                </button>
+            </center>
+        </div>
+    </div>
+</form>

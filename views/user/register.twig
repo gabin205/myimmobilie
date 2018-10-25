@@ -1,0 +1,25 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <div class="container">
+        <form method="post" action="/fa17g16/user/reg" widht="50%">
+            <div class="form-group">
+                <label for="FirstName">First Name</label>
+                <input type="text" name="first_name" class="form-control" id="FirstName" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="LastName">Last Name</label>
+                <input type="text" name="last_name" class="form-control" id="LastName" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="Email">Email address</label>
+                <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" name="email">
+            </div>
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <input type="password" name="password" class="form-control" id="Password" aria-describedby="emailHelp">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock %}

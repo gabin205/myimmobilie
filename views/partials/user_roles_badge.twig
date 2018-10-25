@@ -1,0 +1,5 @@
+<div class="roles d-flex flex-row my-1">
+{% for role in data.user.roles %}
+    <span class="badge badge-info mx-1">{{ role.name }}</span>
+{% endfor %}
+</div>

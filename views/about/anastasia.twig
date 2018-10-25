@@ -1,0 +1,92 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <div class="jumbotron text-center">
+        <h1>Anastasia Savlukov</h1>
+    </div>
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"><center>About Me</center></li>
+            <li data-target="#myCarousel" data-slide-to="1"><center>Project</center></li>
+            <li data-target="#myCarousel" data-slide-to="2"><center>Background</center></li>
+            <li data-target="#myCarousel" data-slide-to="3"><center>Knowledge</center></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="carousel-content">
+                          <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-4">
+                                <img src = "/fa17g16/public/images/Tasi_Bild.jpg" class="img-thumbnail"/>
+                            </div>
+                            <div class="col-lg-6">
+                                <h3>About me</h3>
+                                <p>Anastasia Savlukov</p>
+                                <p>Student of Applied Computer Science M.Sc.</p>
+                                <p>at Hochschule Fulda, Germany</p></br>
+                                <p>anastasia.savlukov@informatik.hs-fulda.de</p>
+                            </div>            
+                          </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-content">
+                            <h3>Project Description</h3>
+                            <p>Master-Project WiSe17/18</p>
+                            <p>Two entrepreneurs, Fulda AI alumni, decided to create a start-up comprising of a team of about 5-6
+                                students to develop a web-based online service for allowing people to buy and sell their real-estate
+                                (apartments, houses) and selected real-estate companies to post their listings.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-content">
+                            <div class="container">
+                                <table width="100%">	
+                                    <h3>Professional Background</h3></br>
+                                    <tr>
+                                        <th><p>since 2015</p></th>
+                                        <th><p>work student as a software engineer at EDAG PS</p></th>
+                                    </tr>
+                                    <tr>
+                                        <th><p>2014 - 2015</p></th>
+                                        <th><p>internship and bachelor thesis at EDAG PS</p></th>
+                                    </tr>
+                                    <tr>
+                                        <th><p>2010 - 2014</p></th>
+                                        <th><p>work student as a media designer</p></th>
+                                    </tr>
+                                    <tr>
+                                        <th><p>2008 - 2010</p></th>
+                                        <th><p>Fachoberschule</p></th>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-content">
+                            <h3>Knowledge</h3></br>
+                            <p>Java, JUnit, MySQL, OracleDB, HTML, JavaScript, jQuery, Node.js, Groovy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+
+    <!-- Controls --> 
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </a>
+
+{% endblock %}

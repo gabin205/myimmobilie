@@ -1,0 +1,86 @@
+/**
+Tim
+ */
+#aboutTim
+{
+    background-image:      url("/fa17g16/public/images/background_tim.jpg");
+    background-size:       cover;
+    background-attachment: fixed;
+    background-position:   center;
+}
+
+.roundedpic
+{
+    border-radius: 25px;
+}
+
+/* style for tims own class "borderedcolumn" */
+.borderedcolumn
+{
+    visibility:       hidden;
+    border-style:     solid;
+    border-width:     medium;
+    border-radius:    25px;
+    background-color: hsla(0, 0%, 100%, 0.1);
+}
+
+#timtitle
+{
+    text-align: center;
+}
+
+/* animation for class "borderedcolumn" */
+.borderedcolumn
+{
+    animation:           1s fadeIn;
+    animation-fill-mode: forwards;
+    animation-delay:     1.5s;
+}
+
+@keyframes fadeIn
+{
+    0%
+    {
+        opacity:   0;
+        transform: scale(.3);
+    }
+    100%
+    {
+        opacity:    1;
+        visibility: visible;
+        transform:  scale(1);
+    }
+}
+
+/* animation for tims profilepic */
+#profilepic
+{
+    animation-name:             stretch2;
+    -webkit-animation-duration: 1.5s;
+    animation-timing-function:  linear;
+    animation-delay:            0s;
+}
+
+@keyframes stretch2
+{
+    0%
+    {
+        visibility:    visible;
+        transform:     scale(0.9);
+        border-radius: 25%;
+    }
+    50%
+    {
+
+    }
+    100%
+    {
+        transform: scale(1);
+    }
+}
+
+/* style for tims own class "emptyrow" */
+.emptyrow
+{
+    padding-top: 10px;
+}

@@ -1,0 +1,66 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+    <div class="searcharea mb-3">
+        {% include 'search/search-header.twig' %}
+    </div>
+    <!-- result list -->
+
+    {% if data.result.length > 0 %}
+        {% for i in 0..data.result.length-1 %}
+            <div class="list-group mb-1">
+                <a href="/fa17g16/real_estate/{{ data.result[i].id }}"
+                   class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <img src="{{ data.result[i].medias[0].path }}"
+                                 class="rounded mx-auto d-block  img-fluid img-thumbnail"
+                                 style="width:170px;height:170px;" alt="...">
+                        </div>
+
+                        <div class="col-lg-9">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1" style="color:darkblue;">{{ data.result[i].header }}</h5>
+                                    </div>
+                                    <p class="mb-1">Size: {{ data.result[i].size|number_format(1, ',','.') }}</p>
+                                    <p class="mb-1">Address: {{ data.result[i].adress.street }}</p>
+                                    <p class="mb-1">Location: {{ data.result[i].adress.zipcode.location }}
+                                        , {{ data.result[i].adress.zipcode.zipcode }}</p>
+                                    <h6>Cost: {{ data.result[i].cost|number_format(2, ',','.') }} $</h6>
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Rooms:{{ data.result[i].rooms }}</h6>
+                                    </div>
+                                    <p class="mb-1">Build at: {{ data.result[i].build_at|date("d.m.Y") }}</p>
+                                    <p>Description: {{ data.result[i].description }}</p>
+                                </div>
+                            </div>
+                            <div class="row col">
+                                <!--Darstellung von Filterergebnisse-->
+                                {% for equip in data.result[i].equipment %}
+                                    <span class="badge badge-primary mr-1">{{ equip.equipment_name|replace({'_':' '}) }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="text-center">
+            <h3>nothing found</h3>
+            <p>please search again</p>
+        </div>
+    {% endif %}
+
+    <!-- <p>EQUIPMENT</p>
+    {{ dump(data.equipments[0]) }} </br></br>
+    <p>REAL_ESTATE</p>
+    {{ dump(data.result[0]) }}</br></br>
+    <p>FORMDATA</p>
+    {{ dump(data.formdata) }}-->
+{% endblock %}
